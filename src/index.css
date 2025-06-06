@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #0c0d0d;
+  --color-accent: #3effbe;
+  --color-foreground: #f7f8f8;
+  --color-muted: #c0c3c2;
+
+  --font-robert-regular: 'robert-regular', sans-serif;
+  --font-robert-semibold: 'robert-semibold', sans-serif;
+  --font-robert-bold: 'robert-bold', sans-serif;
+
+  --leading-150: 150%;
+  --leading-140: 140%;
+  --leading-110:[110%]
+  --tracking-0: 0%;
+
+  --font-750: 750;
+  --font-400: 400;
+}
+
+body {
+  font-family: var(--font-robert-regular);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  overflow-x: hidden;
+}
+.stroke-text {
+  -webkit-text-stroke: 1px #F7F7F8;
+  color: transparent;
+}
+
+
+
+@layer base {
+  @font-face {
+    font-family: 'robert-bold';
+    src: url('/fonts/RoobertTRIAL-Bold.otf') format('otf');
+  }
+
+  @font-face {
+    font-family: 'robert-regular';
+    src: url('/fonts/RoobertTRIAL-Regular.otf') format('otf');
+  }
+
+  @font-face {
+    font-family: 'robert-semibold';
+    src: url('/fonts/RoobertTRIAL-SemiBold.otf') format('otf');
+  }
+}
+
+@utility break {
+  @apply md:block hidden;
+}
+
+
+@utility title {
+  @apply text-[38px] sm:text-[50px] md:text-[66px] font-[650] leading-[110%] tracking-[0%] text-center text-foreground
+}
+
+@utility text-title {
+  @apply text-base sm:text-lg md:text-xl font-[400] leading-[160%] tracking-[0%] text-center mt-4 text-muted
+}
+
+.scrollable-container {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
