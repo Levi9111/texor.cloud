@@ -25,12 +25,6 @@ body {
   color: var(--color-foreground);
   overflow-x: hidden;
 }
-.stroke-text {
-  -webkit-text-stroke: 1px #F7F7F8;
-  color: transparent;
-}
-
-
 
 @layer base {
   @font-face {
@@ -62,11 +56,17 @@ body {
   @apply text-base sm:text-lg md:text-xl font-[400] leading-[160%] tracking-[0%] text-center mt-4 text-muted
 }
 
-.scrollable-container {
+
+@utility  bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+@utility scrollable-container {
   -ms-overflow-style: none;  /* IE/Edge */
   scrollbar-width: none;     /* Firefox */
 }
 
-.scrollable-container::-webkit-scrollbar {
+@utility scrollable-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
