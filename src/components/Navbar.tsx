@@ -51,7 +51,7 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
         </ul>
 
         {/* Docs button */}
-        <button className="hidden md:block w-[183px] h-[63px] rounded-full border-2 border-accent text-[22px] font-[400] leading-140 tracking-0 cursor-pointer hover:bg-accent text-muted hover:text-white transition-colors duration-300 shadow-sm">
+        <button className="hidden md:block w-[183px] h-[63px] rounded-full border-2 border-accent text-[22px] font-[400] leading-140 tracking-0 cursor-pointer hover:bg-accent text-muted hover:text-background transition-colors duration-300 shadow-sm">
           Docs
         </button>
 
@@ -96,7 +96,7 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
                 </li>
               ))}
               <li>
-                <button className="mt-6 w-full h-[50px] rounded-full border-2 border-accent text-[20px] font-[400] tracking-0 cursor-pointer hover:bg-accent text-white hover:text-black transition-colors duration-300 shadow-md">
+                <button className="mt-6 w-full h-[50px] rounded-full border-2 border-accent text-[20px] font-[400] tracking-0 cursor-pointer hover:bg-accent text-white hover:text-background transition-colors duration-300 shadow-md">
                   Docs
                 </button>
               </li>

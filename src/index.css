@@ -67,6 +67,6 @@ body {
   scrollbar-width: none;     /* Firefox */
 }
 
-@utility scrollable-container::-webkit-scrollbar {
+.scrollable-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }

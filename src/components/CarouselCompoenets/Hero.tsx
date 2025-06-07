@@ -18,13 +18,7 @@ const Hero = () => (
         Building
       </button>
 
-      <button
-        className="w-[90%] sm:w-[220px] md:w-[249px] h-[64px] md:h-[74px] rounded-full text-xl md:text-2xl text-white font-[500] bg-gradient-to-r from-[#3EFFBE] via-[#3EFFBE] to-[#060606] transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
-        style={{
-          background:
-            ' linear-gradient(96.45deg, #3EFFBE -64.71%, #060606 25.9%)',
-        }}
-      >
+      <button className="w-[90%] sm:w-[220px] md:w-[249px] h-[64px] md:h-[74px] rounded-full text-xl md:text-2xl text-white font-[500]  transition-all duration-300 hover:scale-105 hover:shadow-xl hover:text-background cursor-pointer border border-accent text-[20px] tracking-0 hover:bg-accent">
         Community
       </button>
     </div>

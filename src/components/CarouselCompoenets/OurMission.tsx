@@ -18,7 +18,7 @@ const OurMission = () => (
       <br className="hidden sm:block" /> hands of its creators.
     </p>
 
-    <div className="mt-10 sm:mt-[60px] w-full max-w-[985px] px-4 sm:px-7 py-6 sm:py-10 space-y-5 sm:space-y-6 bg-[#122939]/5 backdrop-blur-[16px] rounded-[20px] border border-[#122939]">
+    <div className="mt-10 sm:mt-[60px] w-full max-w-[985px] px-4 sm:px-7 py-6 sm:py-10 space-y-5 sm:space-y-6 bg-accent/2 backdrop-blur-[16px] rounded-[20px] border border-accent">
       {ourMissionData.map((item, index) => (
         <div
           key={index}
