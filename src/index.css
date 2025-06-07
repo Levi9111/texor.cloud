@@ -5,6 +5,7 @@
   --color-accent: #3effbe;
   --color-foreground: #f7f8f8;
   --color-muted: #c0c3c2;
+  --color-blur:#000503E5;
 
   --font-robert-regular: 'robert-regular', sans-serif;
   --font-robert-semibold: 'robert-semibold', sans-serif;
@@ -12,6 +13,7 @@
 
   --leading-150: 150%;
   --leading-140: 140%;
+  --leading-145: 145%;
   --leading-110:[110%]
   --tracking-0: 0%;
 

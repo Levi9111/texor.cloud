@@ -1,67 +1,64 @@
+const steps = [
+  {
+    title: 'Join Our Community',
+    icons: ['/assets/images/telegram.png'],
+    links: ['https://t.me/TexorCloud'],
+  },
+  {
+    title: 'Read the Docs',
+    icons: ['/assets/images/docs.png'],
+    links: ['https://texor-cloud.gitbook.io/'],
+  },
+  {
+    title: 'Follow us on',
+    icons: ['/assets/images/x.png', '/assets/images/medium.png'],
+    links: ['https://x.com/Texorcloud', 'Texorcloud1@gmail.com'],
+  },
+];
+
 const Footer = () => {
-  const steps = [
-    {
-      title: 'Join Our Community',
-      icons: ['/assets/images/telegram.png'],
-    },
-    {
-      title: 'Read the Docs',
-      icons: ['/assets/images/docs.png'],
-    },
-    {
-      title: 'Follow us on',
-      icons: [
-        '/assets/images/x.png',
-        '/assets/images/medium.png',
-      ],
-    },
-  ];
   return (
     <section className="px-4 lg:px-0 py-10 lg:py-20">
       {/* Title Section */}
-      <div className=" max-w-4xl mx-auto mb-8 ">
+      <div className="mb-8">
         <h3 className="title">Stay Connected</h3>
         <p className="text-title">
           Follow updates, explore the docs, or join the community
-          <br className="break" />
+          <br className="hidden sm:block break" />
+          <span className="sm:hidden"> </span>
           building with Texor.Cloud
         </p>
       </div>
+
       {/* Cards Container */}
-      {/* Desktop/Tablet View: Grid with Specific Arrow Directions */}
-      <div className="border p-6 rounded-3xl border-[#161616] backdrop-blur-[16px] max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className="border p-3 sm:p-6 rounded-3xl border-[#161616] backdrop-blur-[16px] max-w-[996px] w-[97%] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {steps.map((step, index) => (
             <div
               key={index}
-              className={`relative bg-[#000503E5] border-[1.25px] border-[#161616] p-2 rounded-lg shadow-lg overflow-hidden max-w-sm h-fit`}
+              className="relative border border-[#161616]/70 p-2 shadow-lg overflow-hidden max-w-sm mx-auto sm:mx-0 rounded-[20px] h-fit w-full"
             >
-              <div
-                style={{
-                  background:
-                    'linear-gradient(0deg, rgba(6, 109, 108, 0) 35.45%, rgba(3, 79, 78, 0.5) 100.5%, rgba(2, 70, 69, 0.639423) 118.63%, #00302F 165.54%)',
-                }}
-                className="border-[1.25px] border-[#003A27] rounded-lg p-3  "
-              >
-                <div className="absolute w-[60px] h-[60px]  -top-2 -left-2">
-                  <img
-                    src="/assets/images/ellipse.png"
-                    alt="Footer Icon"
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
-
-                <div className="rounded-lg p-4 text-center">
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  {/* options */}
+              <div className="border border-accent/40 rounded-[16px] p-3">
+                <div className="text-center">
+                  <h3 className="text-lg sm:text-2xl font-[650] leading-[145%] tracking-[-2%] mb-3 sm:mb-5">
+                    {step.title}
+                  </h3>
+                  {/* Icons with links */}
                   <div className="flex justify-center items-center gap-2">
-                    {step.icons.map((icon, index) => (
-                      <img
-                        key={index}
-                        src={icon}
-                        alt={`Icon ${index}`}
-                        className="w-12 h-12"
-                      />
+                    {step.icons.map((icon, iconIndex) => (
+                      <a
+                        key={iconIndex}
+                        href={step.links[iconIndex]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:scale-110 transition-transform duration-200 cursor-pointer"
+                      >
+                        <img
+                          src={icon}
+                          alt={`${step.title} icon ${iconIndex + 1}`}
+                          className="w-10 h-10 sm:w-12 sm:h-12"
+                        />
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -69,17 +66,36 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <h2 className="text-2xl font-bold">Subscribe for Updates</h2>
-          <div className="bg-[#000503E5] border-[1.25px] border-[#161616] px-6 py-2 rounded-lg shadow-lg max-w-xl mx-auto mt-4 flex flex-row">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="p-2 focus:outline-none  rounded-lg w-full"
-            />
-            <button style={{background: 'linear-gradient(0deg, rgba(6, 109, 108, 0) 35.45%, rgba(3, 79, 78, 0.5) 100.5%, rgba(2, 70, 69, 0.639423) 118.63%, #00302F 165.54%)'}} className="mt-2 text-white px-4 py-2 rounded-lg">
-              Subscribe
-            </button>
+
+        {/* Subscribe Section */}
+        <div className="text-center mt-8 sm:mt-12">
+          <h2 className="text-2xl sm:text-[40px] font-[650] leading-[110%] tracking-[-3%] mb-3 sm:mb-5 px-2">
+            Subscribe for Updates
+          </h2>
+          <div className="max-w-[645px] mx-auto relative">
+            {/* Mobile Layout */}
+            <div className="block sm:hidden space-y-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="p-4 focus:outline-none rounded-[23px] border border-[#383838] w-full h-[60px] placeholder:text-[16px] placeholder:text-muted placeholder:leading-[160] bg-transparent"
+              />
+              <button className="w-full h-[50px] flex items-center justify-center bg-accent text-background rounded-xl font-semibold">
+                Subscribe
+              </button>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden sm:block h-[85px] relative">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="p-2 focus:outline-none rounded-[23px] border border-[#383838] w-full h-full placeholder:text-[20px] placeholder:text-muted placeholder:leading-[160] bg-transparent"
+              />
+              <button className="w-[190px] h-[60px] flex items-center justify-center bg-accent text-background rounded-xl absolute right-3 top-1/2 transform -translate-y-1/2">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
       </div>

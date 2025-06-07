@@ -68,7 +68,7 @@ const UseCase = () => {
             key={index}
             className={`h-[256px] w-[320px] relative border border-accent p-4 rounded-lg`}
           >
-            <div className="border-[0.56px] border-accent rounded-xl p-[6px] w-[58px] h-[60px]">
+            <div className="border border-accent/20 rounded-xl p-[6px] w-[58px] h-[60px]">
               <div className="border border-accent rounded-[10px] flex items-center justify-center w-full h-full">
                 <img
                   className="rounded-2xl "
