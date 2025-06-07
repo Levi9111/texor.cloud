@@ -1,35 +1,36 @@
+const steps = [
+  {
+    title: 'Get Market Data',
+    description: 'Pull price data, volume, and trend info',
+    icon: '/assets/images/market-data.png',
+  },
+  {
+    title: 'Calculate Indicators',
+    description: 'Analyze RSI, moving average, or custom signals',
+    icon: '/assets/images/calculate.png',
+  },
+  {
+    title: 'Define Strategy Rule',
+    description: 'Example: If RSI < 30 and trend is bullish',
+    icon: '/assets/images/strategy.png',
+  },
+  {
+    title: 'Notify User',
+    description: 'Send alerts or update performance tracking',
+    icon: '/assets/images/notify.png',
+  },
+  {
+    title: 'Crypto Trading Bot',
+    description: 'Executes Buy, Sell, or Hold actions',
+    icon: '/assets/images/crypto.png',
+  },
+];
+
 const HowItWorks = () => {
-  const steps = [
-    {
-      title: 'Get Market Data',
-      description: 'Pull price data, volume, and trend info',
-      icon: '/assets/images/market-data.png',
-    },
-    {
-      title: 'Calculate Indicators',
-      description: 'Analyze RSI, moving average, or custom signals',
-      icon: '/assets/images/calculate.png',
-    },
-    {
-      title: 'Define Strategy Rule',
-      description: 'Example: If RSI < 30 and trend is bullish',
-      icon: '/assets/images/strategy.png',
-    },
-    {
-      title: 'Notify User',
-      description: 'Send alerts or update performance tracking',
-      icon: '/assets/images/notify.png',
-    },
-    {
-      title: 'Crypto Trading Bot',
-      description: 'Executes Buy, Sell, or Hold actions',
-      icon: '/assets/images/crypto.png',
-    },
-  ];
   return (
     <section className="px-4 lg:px-0  py-10 lg:py-20">
       {/* Title Section */}
-      <div className="mb-10 max-w-4xl mx-auto">
+      <div className="mb-10 mx-auto">
         <h3 className="title">How It Works</h3>
         <p className="text-title">
           Agents on Texor.Cloud are built using simple logic blocks. Each block
@@ -38,32 +39,22 @@ const HowItWorks = () => {
         </p>
       </div>
       {/* Cards Container */}
-      <div className="relative max-w-7xl mx-auto pb-24 min-h-screen">
+      <div className="relative max-w-5xl mx-auto pb-24 min-h-screen">
         {/* Mobile View: Single Column with Top-to-Bottom Arrows */}
         <div className="block lg:hidden space-y-8">
           {steps.map((step, index) => (
             <div key={index} className="relative flex justify-center">
-              <div className="relative bg-[#000503E5] border-[1.25px] border-[#161616] px-6 pb-6  rounded-lg shadow-lg text-center w-full max-w-sm">
-                  <div className="flex items-center justify-center">
-              <img
-                src={step.icon}
-                alt={`${step.title} Icon`}
-                className=" "
-              />
-            </div>
-                <div
-                  style={{
-                    background:
-                      'linear-gradient(180deg, rgba(6, 109, 75, 0) 35.45%, rgba(3, 79, 53, 0.5) 100.5%, rgba(2, 70, 47, 0.639423) 118.63%, #003020 165.54%)',
-                  }}
-                  className="px-7 py-4 rounded-lg -mt-20 border border-[#003A27] text-center"
-                >
-                  <h3 className="text-xl font-semibold mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm ">
-                    {step.description}
-                  </p>
+              <div className="relative  border border-accent rounded-lg text-center w-full max-w-[267px] h-[265px] p-4 flex flex-col justify-between">
+                <div className="flex items-center justify-center border border-accent w-[65px] h-[67px] rounded-xl">
+                  <img
+                    src={step.icon}
+                    alt={`${step.title} Icon`}
+                    className=" "
+                  />
+                </div>
+                <div className="px-2 py-2 rounded-lg border border-accent text-center">
+                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <p className="text-gray-400 text-sm ">{step.description}</p>
                 </div>
               </div>
               {index < steps.length - 1 && (
@@ -83,21 +74,16 @@ const HowItWorks = () => {
         <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8 mx-20 ">
           {/* First Row */}
 
-          <div className="relative bg-[#000503E5] border-[1.25px] border-[#161616] px-6 pb-6 rounded-lg shadow-lg ">
-            <div className="flex items-center justify-center">
+          <div className="relative border border-accent p-4 rounded-lg shadow-lg w-[267px] h-[265px] flex flex-col justify-between">
+            <div className="flex items-center justify-center border border-accent w-[65px] h-[67px] rounded-xl">
               <img
                 src={steps[0].icon}
                 alt="Market Data Icon"
-                className=" "
+                width={36}
+                height={32}
               />
             </div>
-            <div
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(6, 109, 75, 0) 35.45%, rgba(3, 79, 53, 0.5) 100.5%, rgba(2, 70, 47, 0.639423) 118.63%, #003020 165.54%)',
-              }}
-              className="px-7 py-4 rounded-lg -mt-20 border border-[#003A27] text-center"
-            >
+            <div className="px-2 py-2 rounded-lg  border border-accent text-center">
               <h3 className="text-xl font-semibold mb-2">{steps[0].title}</h3>
               <p className="text-gray-400 text-sm ">{steps[0].description}</p>
             </div>
@@ -110,21 +96,15 @@ const HowItWorks = () => {
               />
             </div>
           </div>
-          <div className="relative bg-[#000503E5] border-[1.25px] border-[#161616] px-6 pb-6 rounded-lg shadow-lg ">
-            <div className="flex items-center justify-center">
+          <div className="relative border border-accent p-4 rounded-lg shadow-lg w-[267px] h-[265px] flex flex-col justify-between">
+            <div className="flex items-center justify-center border border-accent w-[65px] h-[67px] rounded-xl">
               <img
                 src={steps[1].icon}
                 alt="Calculate Indicators Icon"
                 className=" "
               />
             </div>
-            <div
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(6, 109, 75, 0) 35.45%, rgba(3, 79, 53, 0.5) 100.5%, rgba(2, 70, 47, 0.639423) 118.63%, #003020 165.54%)',
-              }}
-              className="px-7 py-4 rounded-lg -mt-20 border border-[#003A27] text-center"
-            >
+            <div className="px-2 py-2 rounded-lg  border border-accent text-center">
               <h3 className="text-xl font-semibold mb-2">{steps[1].title}</h3>
               <p className="text-gray-400 text-sm ">{steps[1].description}</p>
             </div>
@@ -137,21 +117,15 @@ const HowItWorks = () => {
               />
             </div>
           </div>
-          <div className="relative bg-[#000503E5] border-[1.25px] border-[#161616] px-6 pb-6 rounded-lg shadow-lg ">
-            <div className="flex items-center justify-center">
+          <div className="relative border border-accent p-4 rounded-lg shadow-lg w-[267px] h-[265px] flex flex-col justify-between">
+            <div className="flex items-center justify-center border border-accent w-[65px] h-[67px] rounded-xl">
               <img
                 src={steps[2].icon}
                 alt="Calculate Indicators Icon"
                 className=" "
               />
             </div>
-            <div
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(6, 109, 75, 0) 35.45%, rgba(3, 79, 53, 0.5) 100.5%, rgba(2, 70, 47, 0.639423) 118.63%, #003020 165.54%)',
-              }}
-              className="px-7 py-4 rounded-lg -mt-20 border border-[#003A27] text-center"
-            >
+            <div className="px-2 py-2 rounded-lg  border border-accent text-center">
               <h3 className="text-xl font-semibold mb-2">{steps[2].title}</h3>
               <p className="text-gray-400 text-sm ">{steps[2].description}</p>
             </div>
@@ -165,40 +139,29 @@ const HowItWorks = () => {
           </div>
 
           {/* Second Row */}
-          <div className="lg:col-start-2 relative bg-[#000503E5] border-[1.25px] border-[#161616] px-6 pb-6 rounded-lg shadow-lg ">
-             <div className="flex items-center justify-center">
+          <div className="w-[267px] h-[265px]"></div>
+          <div className="relative border border-accent p-4 rounded-lg shadow-lg w-[267px] h-[265px] flex flex-col justify-between">
+            <div className="flex items-center justify-center border border-accent w-[65px] h-[67px] rounded-xl">
               <img
                 src={steps[3].icon}
                 alt="Calculate Indicators Icon"
                 className=" "
               />
             </div>
-            <div
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(6, 109, 75, 0) 35.45%, rgba(3, 79, 53, 0.5) 100.5%, rgba(2, 70, 47, 0.639423) 118.63%, #003020 165.54%)',
-              }}
-              className="px-7 py-4 rounded-lg -mt-20 border border-[#003A27] text-center"
-            >
+            <div className="px-2 py-2 rounded-lg  border border-accent text-center">
               <h3 className="text-xl font-semibold mb-2">{steps[3].title}</h3>
               <p className="text-gray-400 text-sm ">{steps[3].description}</p>
             </div>
           </div>
-          <div className="relative bg-[#000503E5] border-[1.25px] border-[#161616] px-6 pb-6 rounded-lg shadow-lg ">
-             <div className="flex items-center justify-center">
+          <div className="relative border border-accent p-4 rounded-lg shadow-lg w-[267px] h-[265px] flex flex-col justify-between">
+            <div className="flex items-center justify-center border border-accent w-[65px] h-[67px] rounded-xl">
               <img
                 src={steps[4].icon}
                 alt="Calculate Indicators Icon"
-                className=" "
+                className=""
               />
             </div>
-            <div
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(6, 109, 75, 0) 35.45%, rgba(3, 79, 53, 0.5) 100.5%, rgba(2, 70, 47, 0.639423) 118.63%, #003020 165.54%)',
-              }}
-              className="px-7 py-4 rounded-lg -mt-20 border border-[#003A27] text-center"
-            >
+            <div className="px-2 py-2 rounded-lg  border border-accent text-center">
               <h3 className="text-xl font-semibold mb-2">{steps[4].title}</h3>
               <p className="text-gray-400 text-sm ">{steps[4].description}</p>
             </div>

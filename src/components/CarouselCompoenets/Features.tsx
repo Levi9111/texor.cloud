@@ -1,43 +1,47 @@
 const Features = () => {
   const steps = [
     {
-      title: 'Get Market Data',
-      description: 'Pull price data, volume, and trend info',
+      title: 'No-Code Agent Builder',
+      description:
+        'Design automation flows using a fast, drag-and-drop interface',
       icon: '/assets/images/features1.png',
     },
     {
-      title: 'Calculate Indicators',
-      description: 'Analyze RSI, moving average, or custom signals',
+      title: 'AI Agent Marketplace',
+      description:
+        'Buy, sell, or share agents. Use what others built or monetize your own',
       icon: '/assets/images/features2.png',
     },
     {
-      title: 'Define Strategy Rule',
-      description: 'Example: If RSI < 30 and trend is bullish',
+      title: 'AI Model Integration',
+      description: 'Connect to any external service to send or receive data',
       icon: '/assets/images/features3.png',
     },
     {
-      title: 'Notify User',
+      title: 'API and Webhook Support',
       description: 'Send alerts or update performance tracking',
       icon: '/assets/images/features4.png',
     },
     {
-      title: 'Crypto Trading Bot',
-      description: 'Executes Buy, Sell, or Hold actions',
+      title: 'Instant Agent Deployment',
+      description: 'Run agents without setup, servers, or infrastructure',
       icon: '/assets/images/features5.png',
     },
     {
-      title: 'Crypto Trading Bot',
-      description: 'Executes Buy, Sell, or Hold actions',
+      title: 'Real-Time Execution and Scheduling',
+      description: 'Trigger flows instantly or based on custom time rules',
       icon: '/assets/images/features6.png',
     },
     {
-      title: 'Crypto Trading Bot',
-      description: 'Executes Buy, Sell, or Hold actions',
+      title: 'Blockchain Interaction',
+      description:
+        'Create agents that work with wallets, smart contracts, or on-chain data.',
       icon: '/assets/images/features7.png',
     },
     {
-      title: 'Crypto Trading Bot',
-      description: 'Executes Buy, Sell, or Hold actions',
+      title: 'Universal Integrations',
+      description:
+        'Connect to web apps, databases, wallets, or messaging platforms without limits.',
       icon: '/assets/images/features8.png',
     },
   ];
@@ -53,38 +57,28 @@ const Features = () => {
         </p>
       </div>
       {/* Cards Container */}
-       {/* Desktop/Tablet View: Grid with Specific Arrow Directions */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8 gap-6 max-w-7xl mx-auto">
-         {
-          steps.map((step, index) => (
-            <div
-              key={index}
-              className={`relative bg-[#000503E5] border-[1.25px] border-[#161616] p-2 rounded-lg shadow-lg`}
-            >
-              <div className="border-[1.25px] border-[#003A27] rounded-lg p-3 w-full h-full">
-                <div className="mb-6">
-                <img className="rounded-2xl " 
-                style={{
-                  //  shadow all around spread 50px
-                  boxShadow: '0 0 50px #066D4B',
-                }}
-                src={step.icon} alt={`${step.title} Icon`} />
-              </div>
-              <div
-                style={{
-                  background:
-                    'linear-gradient(180deg, rgba(6, 109, 75, 0) 35.45%, rgba(3, 79, 53, 0.5) 100.5%, rgba(2, 70, 47, 0.639423) 118.63%, #003020 165.54%)',
-                }}
-                className=""
-              >
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-400 text-sm ">{step.description}</p>
-              </div>
-              </div>
+      {/* Desktop/Tablet View: Grid with Specific Arrow Directions */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8 gap-6 max-w-7xl mx-auto">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className={`relative border border-accent rounded-lg w-[267px] h-[265px] p-4 flex flex-col justify-between`}
+          >
+            <div className="w-12 h-12 rounded-lg border border-accent flex items-center justify-center">
+              <img
+                src={step.icon}
+                alt={`${step.title} Icon`}
+                width={26}
+                height={26}
+              />
             </div>
-          ))}
-        </div>
- 
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+              <p className="text-gray-400 text-sm ">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
