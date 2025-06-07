@@ -64,8 +64,8 @@ const WhyTextCloud = () => {
       </div>
       {/* Cards Container */}
       <div className="text-[#C0C3C2] px-10 overflow-x-auto max-w-screen">
-        <div className="rounded-[20px] border-2 border-[#263D4D] bg-[#00050366] backdrop-blur-md overflow-hidden min-w-[600px]">
-          <table className="w-full text-left border-separate border-spacing-0">
+        <div className="rounded-[20px] border-2 border-[#263D4D] bg-[#00050366] backdrop-blur-md overflow-hidden min-w-[600px] max-w-[1007px] h-[642px] w-full mx-auto">
+          <table className="text-left border-separate border-spacing-0 h-full w-full">
             <thead>
               <tr>
                 <th className="p-2 font-semibold border border-[#263D4D] ">

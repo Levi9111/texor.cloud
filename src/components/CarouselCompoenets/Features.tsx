@@ -1,50 +1,51 @@
+const steps = [
+  {
+    title: 'No-Code Agent Builder',
+    description:
+      'Design automation flows using a fast, drag-and-drop interface',
+    icon: '/assets/images/features1.png',
+  },
+  {
+    title: 'AI Agent Marketplace',
+    description:
+      'Buy, sell, or share agents. Use what others built or monetize your own',
+    icon: '/assets/images/features2.png',
+  },
+  {
+    title: 'AI Model Integration',
+    description: 'Connect to any external service to send or receive data',
+    icon: '/assets/images/features3.png',
+  },
+  {
+    title: 'API and Webhook Support',
+    description: 'Send alerts or update performance tracking',
+    icon: '/assets/images/features4.png',
+  },
+  {
+    title: 'Instant Agent Deployment',
+    description: 'Run agents without setup, servers, or infrastructure',
+    icon: '/assets/images/features5.png',
+  },
+  {
+    title: 'Real-Time Execution and Scheduling',
+    description: 'Trigger flows instantly or based on custom time rules',
+    icon: '/assets/images/features6.png',
+  },
+  {
+    title: 'Blockchain Interaction',
+    description:
+      'Create agents that work with wallets, smart contracts, or on-chain data.',
+    icon: '/assets/images/features7.png',
+  },
+  {
+    title: 'Universal Integrations',
+    description:
+      'Connect to web apps, databases, wallets, or messaging platforms without limits.',
+    icon: '/assets/images/features8.png',
+  },
+];
+
 const Features = () => {
-  const steps = [
-    {
-      title: 'No-Code Agent Builder',
-      description:
-        'Design automation flows using a fast, drag-and-drop interface',
-      icon: '/assets/images/features1.png',
-    },
-    {
-      title: 'AI Agent Marketplace',
-      description:
-        'Buy, sell, or share agents. Use what others built or monetize your own',
-      icon: '/assets/images/features2.png',
-    },
-    {
-      title: 'AI Model Integration',
-      description: 'Connect to any external service to send or receive data',
-      icon: '/assets/images/features3.png',
-    },
-    {
-      title: 'API and Webhook Support',
-      description: 'Send alerts or update performance tracking',
-      icon: '/assets/images/features4.png',
-    },
-    {
-      title: 'Instant Agent Deployment',
-      description: 'Run agents without setup, servers, or infrastructure',
-      icon: '/assets/images/features5.png',
-    },
-    {
-      title: 'Real-Time Execution and Scheduling',
-      description: 'Trigger flows instantly or based on custom time rules',
-      icon: '/assets/images/features6.png',
-    },
-    {
-      title: 'Blockchain Interaction',
-      description:
-        'Create agents that work with wallets, smart contracts, or on-chain data.',
-      icon: '/assets/images/features7.png',
-    },
-    {
-      title: 'Universal Integrations',
-      description:
-        'Connect to web apps, databases, wallets, or messaging platforms without limits.',
-      icon: '/assets/images/features8.png',
-    },
-  ];
   return (
     <section className="px-4 lg:px-0  py-10 lg:py-20">
       {/* Title Section */}
