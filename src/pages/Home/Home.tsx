@@ -103,30 +103,135 @@ function Home({ setGoWebsite }: HomeProps) {
     return (
       <div className="w-screen h-screen flex items-center justify-center bg-black text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-50" />
+
         <div className="absolute inset-0 z-0">
-          {[...Array(25)].map((_, i) => (
+          {[...Array(50)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-accent/10 rounded-full"
+              className="absolute rounded-full"
+              style={{
+                width: `${2 + Math.random() * 4}px`,
+                height: `${2 + Math.random() * 4}px`,
+                background: `linear-gradient(45deg, #3EFFBE, #00D4AA, #4FFFCF)`,
+                boxShadow: `0 0 ${
+                  4 + Math.random() * 8
+                }px rgba(62, 255, 190, 0.6)`,
+                filter: 'blur(0.5px)',
+              }}
               initial={{
                 x: Math.random() * window.innerWidth,
                 y: Math.random() * window.innerHeight,
                 opacity: 0,
+                scale: 0,
               }}
               animate={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                opacity: [0, 0.3, 0],
+                x: [
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                ],
+                y: [
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                ],
+                opacity: [0, 0.8, 0.4, 0.9, 0],
+                scale: [0, 1, 1.2, 0.8, 1],
+                rotate: [0, 180, 360],
               }}
               transition={{
-                duration: 5 + Math.random() * 2,
+                duration: 8 + Math.random() * 4,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                delay: Math.random() * 3,
+                ease: 'easeInOut',
+                times: [0, 0.25, 0.5, 0.75, 1],
+              }}
+            />
+          ))}
+
+          {/* Add some larger, slower moving particles for depth */}
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={`large-${i}`}
+              className="absolute rounded-full"
+              style={{
+                width: `${6 + Math.random() * 8}px`,
+                height: `${6 + Math.random() * 8}px`,
+                background: `radial-gradient(circle, rgba(62, 255, 190, 0.4), rgba(62, 255, 190, 0.1))`,
+                boxShadow: `0 0 ${
+                  8 + Math.random() * 12
+                }px rgba(62, 255, 190, 0.3)`,
+                border: '1px solid rgba(62, 255, 190, 0.2)',
+              }}
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                opacity: 0,
+                scale: 0,
+              }}
+              animate={{
+                x: [
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                ],
+                y: [
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                ],
+                opacity: [0, 0.6, 0.3, 0.7, 0],
+                scale: [0, 1.2, 0.8, 1.4, 0],
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: 12 + Math.random() * 6,
+                repeat: Infinity,
+                delay: Math.random() * 4,
+                ease: 'easeInOut',
+                times: [0, 0.3, 0.6, 0.8, 1],
+              }}
+            />
+          ))}
+
+          {/* Add some connecting lines between particles */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={`line-${i}`}
+              className="absolute"
+              style={{
+                width: '1px',
+                height: `${20 + Math.random() * 60}px`,
+                background: `linear-gradient(to bottom, transparent, rgba(62, 255, 190, 0.3), transparent)`,
+                transformOrigin: 'top',
+              }}
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                opacity: 0,
+                scaleY: 0,
+                rotate: Math.random() * 360,
+              }}
+              animate={{
+                x: [
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                ],
+                y: [
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                ],
+                opacity: [0, 0.4, 0.1, 0.5, 0],
+                scaleY: [0, 1, 0.7, 1.2, 0],
+                rotate: [Math.random() * 360, Math.random() * 360 + 180],
+              }}
+              transition={{
+                duration: 10 + Math.random() * 5,
+                repeat: Infinity,
+                delay: Math.random() * 3,
+                ease: 'easeInOut',
               }}
             />
           ))}
         </div>
-
         <div className="relative z-10 text-center px-4">
           <AnimatePresence mode="wait">
             <motion.div
