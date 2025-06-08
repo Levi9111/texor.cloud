@@ -1,4 +1,5 @@
-import bgVideo1 from '/videos/bg-video-1.mp4';
+import bgVideo from '/videos/bg-video-1.mp4';
+import bgVideoMobile from '/videos/bg-video-mobile-1.mp4';
 
 const BackgroundVideo = () => {
   return (
@@ -10,7 +11,12 @@ const BackgroundVideo = () => {
         loop
         playsInline
       >
-        <source src={bgVideo1} type="video/mp4" />
+        <source src={bgVideo} type="video/mp4" media="(min-width: 769px)" />
+        <source
+          src={bgVideoMobile}
+          type="video/mp4"
+          media="(max-width: 768px)"
+        />
         Your browser does not support the video tag.
       </video>
     </div>
