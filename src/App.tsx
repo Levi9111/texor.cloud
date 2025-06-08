@@ -68,7 +68,7 @@ const App = () => {
 
       {goWebsite && (
         <div className="relative w-full min-h-screen overflow-x-hidden ">
-          <Navbar onNavigate={setCurrentSlide} />
+          <Navbar onNavigate={setCurrentSlide} currentSlide={currentSlide} />
           <BackgroundVideo />
           <div className="relative z-10 flex items-center justify-center w-full h-full ">
             <Carousel

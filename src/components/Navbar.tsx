@@ -12,17 +12,34 @@ const tags = [
 
 interface NavbarProps {
   onNavigate: (index: number) => void;
+  currentSlide: number;
 }
 
-const Navbar = ({ onNavigate }: NavbarProps) => {
+const Navbar = ({ onNavigate, currentSlide }: NavbarProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const getActiveStyles = (index: number) => {
+    const isActive = currentSlide === index + 1;
+    return isActive
+      ? 'text-accent after:w-full'
+      : 'text-muted hover:text-accent hover:after:w-full';
+  };
+
+  const getMobileActiveStyles = (index: number) => {
+    const isActive = currentSlide === index + 1;
+    return isActive
+      ? 'text-accent font-semibold'
+      : 'text-white hover:text-accent';
+  };
 
   return (
     <>
       <nav className="max-w-[1488px] w-[96%] h-[63px] pt-11 mx-auto flex items-center justify-between relative z-50 mb-[60px]">
         {/* Logo */}
         <div
-          className="flex items-center justify-center gap-3 cursor-pointer"
+          className={`flex items-center justify-center gap-3 cursor-pointer transition-all duration-300 ${
+            currentSlide === 0 ? 'scale-105' : 'hover:scale-105'
+          }`}
           onClick={() => onNavigate(0)}
         >
           <img
@@ -32,7 +49,11 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
             height={40}
             className="drop-shadow-lg"
           />
-          <p className="uppercase text-2xl leading-150 tracking-0 font-[750] text-white">
+          <p
+            className={`uppercase text-2xl leading-150 tracking-0 font-[750] transition-colors duration-300 ${
+              currentSlide === 0 ? 'text-accent' : 'text-white'
+            }`}
+          >
             texor.cloud
           </p>
         </div>
@@ -43,7 +64,9 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
             <li
               key={tag.title}
               onClick={() => onNavigate(index + 1)}
-              className="text-xl leading-150 tracking-0 font-[400] text-muted transition-all duration-300 hover:text-accent cursor-pointer relative z-20 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+              className={`text-xl leading-150 tracking-0 font-[400] transition-all duration-300 cursor-pointer relative z-20 
+                after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300
+                ${getActiveStyles(index)}`}
             >
               {tag.title}
             </li>
@@ -60,9 +83,9 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
           className="md:hidden flex flex-col gap-[5px] cursor-pointer"
           onClick={() => setDrawerOpen(true)}
         >
-          <span className="w-6 h-[3px] bg-white rounded-full" />
-          <span className="w-6 h-[3px] bg-white rounded-full" />
-          <span className="w-6 h-[3px] bg-white rounded-full" />
+          <span className="w-6 h-[3px] bg-white rounded-full transition-all duration-300" />
+          <span className="w-6 h-[3px] bg-white rounded-full transition-all duration-300" />
+          <span className="w-6 h-[3px] bg-white rounded-full transition-all duration-300" />
         </div>
       </nav>
 
@@ -78,7 +101,7 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
           >
             <button
               onClick={() => setDrawerOpen(false)}
-              className="self-end text-white text-2xl"
+              className="self-end text-white text-2xl hover:text-accent transition-colors duration-300"
             >
               ✕
             </button>
@@ -90,7 +113,14 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
                     onNavigate(index + 1);
                     setDrawerOpen(false);
                   }}
-                  className="text-xl text-white font-medium cursor-pointer transition-all hover:text-accent"
+                  className={`text-xl font-medium cursor-pointer transition-all duration-300 relative
+                    ${getMobileActiveStyles(index)}
+                    ${
+                      currentSlide === index + 1
+                        ? 'pl-4 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-accent before:rounded-full'
+                        : ''
+                    }
+                  `}
                 >
                   {tag.title}
                 </li>
