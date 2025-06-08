@@ -18,7 +18,7 @@ const steps = [
 
 const Footer = () => {
   return (
-    <section className="px-4 lg:px-0 py-10 lg:py-20">
+    <footer className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20">
       {/* Title Section */}
       <div className="mb-8">
         <h3 className="title">Stay Connected</h3>
@@ -31,7 +31,7 @@ const Footer = () => {
       </div>
 
       {/* Cards Container */}
-      <div className="border p-3 sm:p-6 rounded-3xl border-[#161616] backdrop-blur-[16px] max-w-[996px] w-[97%] mx-auto">
+      <div className="border p-3 sm:p-6 rounded-3xl border-[#161616] backdrop-blur-[16px] max-w-[996px] w-[97%] mx-auto ">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {steps.map((step, index) => (
             <div
@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 

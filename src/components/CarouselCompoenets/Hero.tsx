@@ -1,5 +1,5 @@
 const Hero = () => (
-  <section className="px-4 md:px-10  py-10 lg:py-20 ">
+  <section className="px-4 md:px-10  py-10 lg:py-20 md:pb-0 pb-20">
     <h1 className="text-[42px] sm:text-[60px] md:text-[80px] font-[650] leading-[110%] tracking-[-0.03em] text-center text-foreground">
       Turn Logic Into Action With <br className="hidden sm:block" /> No-Code AI
       Agents

@@ -4,6 +4,7 @@ import Carousel from './components/CarouselSlider';
 import Navbar from './components/Navbar';
 import Home from './pages/Home/Home';
 import { AnimatePresence } from 'framer-motion';
+import SlideNavigation from './components/SlideNavigation';
 
 const MAX_SLIDES = 7;
 const THROTTLE_TIME = 800;
@@ -66,14 +67,19 @@ const App = () => {
       </AnimatePresence>
 
       {goWebsite && (
-        <div className="relative w-full min-h-screen overflow-x-hidden">
+        <div className="relative w-full min-h-screen overflow-x-hidden ">
           <Navbar onNavigate={setCurrentSlide} />
           <BackgroundVideo />
-          <div className="relative z-10 flex items-center justify-center w-full h-full">
+          <div className="relative z-10 flex items-center justify-center w-full h-full ">
             <Carousel
               current={currentSlide}
               direction={direction}
               setCurrentSlide={setCurrentSlide}
+            />
+            <SlideNavigation
+              current={currentSlide}
+              setCurrentSlide={setCurrentSlide}
+              totalSlides={MAX_SLIDES + 1}
             />
           </div>
         </div>

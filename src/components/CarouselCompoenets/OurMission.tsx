@@ -8,7 +8,7 @@ const ourMissionData = [
 ];
 
 const OurMission = () => (
-  <div className="px-4 sm:px-6 md:px-10 lg:px-0 w-full flex flex-col items-center  py-10 lg:py-20">
+  <div className="px-4 sm:px-6 md:px-10 lg:px-0 w-full flex flex-col items-center  py-10 lg:py-20 md:pb-0 pb-20">
     <h3 className="text-[38px] sm:text-[50px] md:text-[66px] font-[650] leading-[110%] tracking-0 text-center text-foreground">
       Our mission
     </h3>

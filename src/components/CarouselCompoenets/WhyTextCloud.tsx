@@ -104,7 +104,7 @@ const WhyTexorCloud = () => {
   };
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
+    <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20 md:pb-0 pb-20">
       {/* Title Section */}
       <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center">
         <h2 className="title">Why Texor.Cloud</h2>

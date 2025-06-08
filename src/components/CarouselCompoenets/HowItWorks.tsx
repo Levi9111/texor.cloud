@@ -28,7 +28,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="px-4 lg:px-0  py-10 lg:py-20">
+    <section className="px-4 lg:px-0  py-10 lg:py-20 ">
       {/* Title Section */}
       <div className="mb-10 mx-auto">
         <h3 className="title">How It Works</h3>
@@ -39,7 +39,7 @@ const HowItWorks = () => {
         </p>
       </div>
       {/* Cards Container */}
-      <div className="relative max-w-5xl mx-auto pb-24 min-h-screen">
+      <div className="relative max-w-5xl mx-auto md:pb-24 pb-20 min-h-screen">
         {/* Mobile View: Single Column with Top-to-Bottom Arrows */}
         <div className="block lg:hidden space-y-8">
           {steps.map((step, index) => (

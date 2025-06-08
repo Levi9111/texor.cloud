@@ -60,7 +60,7 @@ const Carousel = ({ current, setCurrentSlide, direction }: CarouselProps) => {
       </AnimatePresence>
 
       {/* on mobile display */}
-      <div className="md:hidden w-full flex items-center justify-center gap-4 pb-4 absolute bottom-0">
+      <div className="hidden w-full sflex items-center justify-center gap-4 pb-4 absolute bottom-0">
         <button
           className="w-10 h-10 rounded-full bg-[#263D4D]/70 border border-[#263D4D] backdrop-blur-md flex items-center justify-center"
           onClick={() => setCurrentSlide(Math.max(current - 1, 0))}
