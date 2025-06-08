@@ -49,7 +49,8 @@ const HowItWorks = () => {
                   <img
                     src={step.icon}
                     alt={`${step.title} Icon`}
-                    className=" "
+                    width={28}
+                    height={30}
                   />
                 </div>
                 <div className="px-2 py-2 rounded-lg border border-accent text-center">
@@ -101,6 +102,8 @@ const HowItWorks = () => {
               <img
                 src={steps[1].icon}
                 alt="Calculate Indicators Icon"
+                width={24}
+                height={36}
                 className=" "
               />
             </div>
@@ -122,6 +125,8 @@ const HowItWorks = () => {
               <img
                 src={steps[2].icon}
                 alt="Calculate Indicators Icon"
+                width={32}
+                height={32}
                 className=" "
               />
             </div>
@@ -145,7 +150,8 @@ const HowItWorks = () => {
               <img
                 src={steps[3].icon}
                 alt="Calculate Indicators Icon"
-                className=" "
+                width={30}
+                height={32}
               />
             </div>
             <div className="px-2 py-2 rounded-lg  border border-accent text-center">
@@ -158,7 +164,8 @@ const HowItWorks = () => {
               <img
                 src={steps[4].icon}
                 alt="Calculate Indicators Icon"
-                className=""
+                width={35}
+                height={36}
               />
             </div>
             <div className="px-2 py-2 rounded-lg  border border-accent text-center">

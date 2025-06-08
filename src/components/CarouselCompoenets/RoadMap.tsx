@@ -52,12 +52,12 @@ const Roadmap = () => {
       </div>
 
       {/* Cards Container */}
-      <div className="flex md:flex-row flex-col justify-center items-center gap-6 max-w-[1230px] mx-auto">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-6 max-w-[1630px] w-[97%] mx-auto">
         {steps.map((step, index) => (
           <div
             key={index}
             className={`relative bg-blur/20 backdrop-blur-md border border-[#161616] p-3 rounded-[36px] overflow-hidden 
-              w-full sm:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] xl:w-[460px] 2xl:w-[487px]
+              w-full sm:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] xl:w-[470px] 2xl:w-[487px]
               ${
                 index === 1
                   ? 'min-h-[400px] sm:min-h-[500px] lg:min-h-[596px]'
