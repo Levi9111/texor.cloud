@@ -52,7 +52,7 @@ const SlideNavigation = ({
             ${
               isActive
                 ? 'bg-accent shadow-[0_0_6px_2px_rgba(255,255,255,0.5)] scale-125'
-                : 'bg-white/30 hover:bg-white/50'
+                : 'bg-white/20 hover:bg-white/30'
             }
             hover:scale-110`}
                 />

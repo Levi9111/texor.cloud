@@ -7,8 +7,8 @@ interface HomeProps {
 }
 
 const inspiringMessages = [
+  'Loading...',
   'Initializing Intelligence...',
-  'Connecting Neural Pathways...',
   'Calibrating Innovation...',
   'Embrace the Future of AI-Native Automation',
 ];

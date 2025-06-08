@@ -7,7 +7,7 @@ const steps = [
       'Define and validate the core concept',
       'Launch the first working AI agent',
       'Set up community and ecosystem structure',
-      'Launch the $TRX token',
+      'Launch the $TXR token',
       'Onboard key advisors and recognized experts in AI and automation',
     ],
   },
@@ -17,7 +17,7 @@ const steps = [
     phase: '#Phase 2',
     options: [
       'Continue platform development with deeper logic and flexibility',
-      'Launch private beta for early builders, $TRX holders, and partners',
+      'Launch private beta for early builders, $TXR holders, and partners',
       'Expand integrations across Web2 and Web3 tools',
       'Onboard institutions and automation-focused teamsOnboard institutions and automation-focused teams',
       'Launch a grant program for early monetizable agents',
@@ -52,7 +52,7 @@ const Roadmap = () => {
       </div>
 
       {/* Cards Container */}
-      <div className="flex flex-wrap justify-center items-center gap-6 max-w-[1200px] mx-auto">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-6 max-w-[1230px] mx-auto">
         {steps.map((step, index) => (
           <div
             key={index}
