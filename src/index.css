@@ -63,12 +63,63 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
   }
+  .scrollable-container {
+          /* WebKit browsers (Chrome, Safari, Edge) */
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        }
 
-@utility scrollable-container {
-  -ms-overflow-style: none;  /* IE/Edge */
-  scrollbar-width: none;     /* Firefox */
-}
+        .scrollable-container::-webkit-scrollbar {
+          width: 8px;
+        }
 
-.scrollable-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
+        .scrollable-container::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          margin: 10px 0;
+        }
+
+        .scrollable-container::-webkit-scrollbar-thumb {
+          background: linear-gradient(
+            135deg,
+            rgba(38, 61, 77, 0.8) 0%,
+            rgba(38, 61, 77, 0.6) 50%,
+            rgba(38, 61, 77, 0.4) 100%
+          );
+          border-radius: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .scrollable-container::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(
+            135deg,
+            rgba(38, 61, 77, 1) 0%,
+            rgba(38, 61, 77, 0.8) 50%,
+            rgba(38, 61, 77, 0.6) 100%
+          );
+          border-color: rgba(255, 255, 255, 0.2);
+          transform: scaleX(1.2);
+        }
+
+        .scrollable-container::-webkit-scrollbar-thumb:active {
+          background: linear-gradient(
+            135deg,
+            #263d4d 0%,
+            rgba(38, 61, 77, 0.9) 100%
+          );
+        }
+
+        /* Firefox */
+        @supports (scrollbar-width: thin) {
+          .scrollable-container {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(38, 61, 77, 0.6) rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        @supports (scrollbar-gutter: stable) {
+          .scrollable-container {
+            scrollbar-gutter: stable;
+          }
+        }

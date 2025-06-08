@@ -26,7 +26,7 @@ const SlideNavigation = ({
   };
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 -translate-x-3 w-full flex items-center justify-center gap-4 pb-4  z-50 pointer-events-none">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 w-full flex items-center justify-center gap-4 pb-4  z-50 pointer-events-none">
       <div className="flex items-center gap-4 pointer-events-auto">
         {/* Previous Button */}
         <button
