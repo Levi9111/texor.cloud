@@ -17,14 +17,18 @@ const App = () => {
   const throttleRef = useRef(false);
   const firstScrollDoneRef = useRef(false);
 
+  interface WheelEventWithDeltaY extends WheelEvent {
+    deltaY: number;
+  }
+
   const handleWheel = useCallback(
-    (e: WheelEvent) => {
+    (e: WheelEventWithDeltaY): void => {
       if (window.innerWidth <= 768 || throttleRef.current) return;
 
-      const isScrollingDown = e.deltaY > 0;
-      const atBottom =
+      const isScrollingDown: boolean = e.deltaY > 0;
+      const atBottom: boolean =
         window.innerHeight + window.scrollY >= document.body.scrollHeight - 5;
-      const atTop = window.scrollY <= 5;
+      const atTop: boolean = window.scrollY <= 5;
 
       if (!firstScrollDoneRef.current && isScrollingDown) {
         firstScrollDoneRef.current = true;
@@ -67,10 +71,10 @@ const App = () => {
       </AnimatePresence>
 
       {goWebsite && (
-        <div className="relative w-full min-h-screen overflow-x-hidden ">
+        <div className="relative w-full min-h-screen overflow-x-hidden">
           <Navbar onNavigate={setCurrentSlide} currentSlide={currentSlide} />
           <BackgroundVideo />
-          <div className="relative z-10 flex items-center justify-center w-full h-full ">
+          <div className="relative z-10 flex items-center justify-center w-full h-full">
             <Carousel
               current={currentSlide}
               direction={direction}
