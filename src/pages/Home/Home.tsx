@@ -16,7 +16,8 @@ const inspiringMessages = [
 function Home({ setGoWebsite }: HomeProps) {
   const [loading, setLoading] = useState(true);
   const [loadingMessage, setLoadingMessage] = useState(inspiringMessages[0]);
-  const [messageIndex, setMessageIndex] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_messageIndex, setMessageIndex] = useState(0);
   const [triggerBurst, setTriggerBurst] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
