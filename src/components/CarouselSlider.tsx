@@ -7,7 +7,7 @@ import UseCase from './CarouselCompoenets/ExampleOfUseCase';
 import WhyTextCloud from './CarouselCompoenets/WhyTextCloud';
 import Roadmap from './CarouselCompoenets/RoadMap';
 import Footer from './CarouselCompoenets/Footer';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   <Hero key="slide1" />,
@@ -65,7 +65,7 @@ const Carousel = ({ current, setCurrentSlide, direction }: CarouselProps) => {
           className="w-10 h-10 rounded-full bg-[#263D4D]/70 border border-[#263D4D] backdrop-blur-md flex items-center justify-center"
           onClick={() => setCurrentSlide(Math.max(current - 1, 0))}
         >
-          <ArrowLeft />
+          <ChevronLeft />
         </button>
         <button
           className="w-10 h-10 rounded-full bg-[#263D4D]/70 border border-[#263D4D] backdrop-blur-md flex items-center justify-center"
@@ -73,7 +73,7 @@ const Carousel = ({ current, setCurrentSlide, direction }: CarouselProps) => {
             setCurrentSlide(Math.min(current + 1, slides.length - 1))
           }
         >
-          <ArrowRight />
+          <ChevronRight />
         </button>
       </div>
     </div>
