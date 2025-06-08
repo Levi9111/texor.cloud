@@ -8,6 +8,7 @@ import WhyTextCloud from './CarouselCompoenets/WhyTextCloud';
 import Roadmap from './CarouselCompoenets/RoadMap';
 import Footer from './CarouselCompoenets/Footer';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 const slides = [
   <Hero key="slide1" />,
@@ -42,8 +43,22 @@ const variants = {
 };
 
 const Carousel = ({ current, setCurrentSlide, direction }: CarouselProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) {
+      window?.scrollTo({
+        top: 50,
+        behavior: 'smooth',
+      });
+    }
+  }, [current]);
+
   return (
-    <div className="relative w-full h-screen scrollable-container overflow-y-scroll">
+    <div
+      ref={containerRef}
+      className="relative w-full h-screen scrollable-container overflow-y-scroll"
+    >
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={current}
@@ -59,7 +74,7 @@ const Carousel = ({ current, setCurrentSlide, direction }: CarouselProps) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* on mobile display */}
+      {/* mobile nav buttons */}
       <div className="hidden w-full sflex items-center justify-center gap-4 pb-4 absolute bottom-0">
         <button
           className="w-10 h-10 rounded-full bg-[#263D4D]/70 border border-[#263D4D] backdrop-blur-md flex items-center justify-center"
