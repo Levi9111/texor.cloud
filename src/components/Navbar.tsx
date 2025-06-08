@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logo from '/logo/logo.svg';
 
 const tags = [
-  { title: 'Our mission' },
-  { title: 'How it works' },
-  { title: 'Features' },
-  { title: 'Why Texor.Cloud' },
-  { title: 'Roadmap' },
+  { title: 'Our mission', slide: 1 },
+  { title: 'How it works', slide: 2 },
+  { title: 'Features', slide: 3 },
+  { title: 'Why Texor.Cloud', slide: 4 },
+  { title: 'Roadmap', slide: 6 },
 ];
 
 interface NavbarProps {
@@ -19,14 +19,14 @@ const Navbar = ({ onNavigate, currentSlide }: NavbarProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const getActiveStyles = (index: number) => {
-    const isActive = currentSlide === index + 1;
+    const isActive = currentSlide === index;
     return isActive
       ? 'text-accent after:w-full'
       : 'text-muted hover:text-accent hover:after:w-full';
   };
 
   const getMobileActiveStyles = (index: number) => {
-    const isActive = currentSlide === index + 1;
+    const isActive = currentSlide === index;
     return isActive
       ? 'text-accent font-semibold'
       : 'text-white hover:text-accent';
@@ -60,13 +60,13 @@ const Navbar = ({ onNavigate, currentSlide }: NavbarProps) => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-6">
-          {tags.map((tag, index) => (
+          {tags.map((tag) => (
             <li
               key={tag.title}
-              onClick={() => onNavigate(index + 1)}
+              onClick={() => onNavigate(tag.slide)}
               className={`text-xl leading-150 tracking-0 font-[400] transition-all duration-300 cursor-pointer relative z-20 
                 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300
-                ${getActiveStyles(index)}`}
+                ${getActiveStyles(tag.slide)}`}
             >
               {tag.title}
             </li>
@@ -106,17 +106,17 @@ const Navbar = ({ onNavigate, currentSlide }: NavbarProps) => {
               ✕
             </button>
             <ul className="flex flex-col gap-6 mt-8">
-              {tags.map((tag, index) => (
+              {tags.map((tag) => (
                 <li
                   key={tag.title}
                   onClick={() => {
-                    onNavigate(index + 1);
+                    onNavigate(tag.slide);
                     setDrawerOpen(false);
                   }}
                   className={`text-xl font-medium cursor-pointer transition-all duration-300 relative
-                    ${getMobileActiveStyles(index)}
+                    ${getMobileActiveStyles(tag.slide)}
                     ${
-                      currentSlide === index + 1
+                      currentSlide === tag.slide
                         ? 'pl-4 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-accent before:rounded-full'
                         : ''
                     }

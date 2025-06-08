@@ -14,8 +14,8 @@ const slides = [
   <OurMission key="slide2" />,
   <HowItWorks key="slide3" />,
   <Features key="slide4" />,
-  <UseCase key="slide5" />,
-  <WhyTextCloud key="slide6" />,
+  <WhyTextCloud key="slide5" />,
+  <UseCase key="slide6" />,
   <Roadmap key="slide7" />,
   <Footer key="slide8" />,
 ];
