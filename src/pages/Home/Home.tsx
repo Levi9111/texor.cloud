@@ -13,7 +13,7 @@ function Home({ setGoWebsite }: HomeProps) {
 
   // Initial loading state
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
+    const timer = setTimeout(() => setLoading(false), 8000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -87,8 +87,8 @@ function Home({ setGoWebsite }: HomeProps) {
       <div className="w-screen h-screen flex items-center justify-center bg-black text-white">
         <motion.h1
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          animate={{ opacity: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0] }}
+          transition={{ duration: 7.5, repeat: Infinity }}
           className="text-4xl font-bold tracking-widest"
         >
           Loading...
@@ -149,7 +149,7 @@ function Home({ setGoWebsite }: HomeProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="w-[280px] h-[280px] border border-accent rounded-full flex flex-col items-center justify-center text-[#bfc2c1] font-[650] leading-[130%] tracking-0 text-xl uppercase">
+              <div className="w-[180px] h-[180px] border border-accent rounded-full flex flex-col items-center justify-center text-[#bfc2c1] font-[650] leading-[130%] tracking-0 text-xl uppercase">
                 Build <br /> What's
                 <br />
                 Next

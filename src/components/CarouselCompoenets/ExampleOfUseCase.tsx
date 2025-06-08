@@ -51,27 +51,25 @@ const UseCase = () => {
   return (
     <section className="px-4 lg:px-0 py-10 lg:py-20">
       {/* Title Section */}
-      <div className="max-w-4xl mx-auto mb-10">
-        <h3 className="title">Example Use Cases</h3>
-        <p className="text-title">
+      <div className="max-w-4xl mx-auto mb-10 text-center">
+        <h3 className="title ">Example Use Cases</h3>
+        <p className="text-title mt-2">
           These are just a few agent types you can build with Texor. Anything
-          with
-          <br className="break" />
-          logic and data can be turned into an agent.
+          with logic and data can be turned into an agent.
         </p>
       </div>
+
       {/* Cards Container */}
-      {/* Desktop/Tablet View: Grid with Specific Arrow Directions */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8 gap-4 max-w-[1352px] w-[97%] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-5 max-w-[1352px] w-[97%] mx-auto">
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`h-[256px] w-[320px] relative border border-accent p-4 rounded-lg`}
+            className="w-full md:min-h-[256px] border border-accent p-5 rounded-lg flex flex-col gap-4"
           >
-            <div className="border border-accent/20 rounded-xl p-[6px] w-[58px] h-[60px]">
+            <div className="border border-accent/20 rounded-xl p-2 w-14 h-14">
               <div className="border border-accent rounded-[10px] flex items-center justify-center w-full h-full">
                 <img
-                  className="rounded-2xl "
+                  className="rounded-xl"
                   src={step.icon}
                   alt={`${step.title} Icon`}
                   width={26}
@@ -79,10 +77,19 @@ const UseCase = () => {
                 />
               </div>
             </div>
-            <div className="">
-              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-400 text-sm ">{step.description}</p>
+            <div className="flex-1">
+              <h3 className="text-[20px] font-[650] leading-145 tracking-[-2%] mb-1 text-white">
+                {step.title}
+              </h3>
+              <p className="text-gray-400 text-sm leading-145 tracking-[-1%] font-[400] ">
+                {step.description}
+              </p>
             </div>
+            {index === 0 && (
+              <button className="mt-4 w-[103px] h-[34px] rounded-lg border border-accent text-[15px] text-foreground leading-145 tracking-0 capitalize hover:bg-accent hover:text-background transition-colors duration-300 cursor-pointer">
+                Try it out
+              </button>
+            )}
           </div>
         ))}
       </div>

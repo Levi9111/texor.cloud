@@ -1,5 +1,26 @@
-const WhyTextCloud = () => {
-  const features = [
+interface WarningValue {
+  type: 'warning';
+  text: string;
+}
+
+type FeatureValue = boolean | WarningValue;
+
+interface Feature {
+  name: string;
+  texorCloud: FeatureValue;
+  autoGPT: FeatureValue;
+  botpress: FeatureValue;
+  n8n: FeatureValue;
+}
+
+interface Platform {
+  key: keyof Omit<Feature, 'name'>;
+  name: string;
+  highlight: boolean;
+}
+
+const WhyTexorCloud = () => {
+  const features: Feature[] = [
     {
       name: 'No-Code Visual Builder',
       texorCloud: true,
@@ -51,36 +72,111 @@ const WhyTextCloud = () => {
     },
   ];
 
+  const platforms: Platform[] = [
+    { key: 'texorCloud', name: 'TexorCloud', highlight: true },
+    { key: 'autoGPT', name: 'AutoGPT', highlight: false },
+    { key: 'botpress', name: 'Botpress', highlight: false },
+    { key: 'n8n', name: 'n8n', highlight: false },
+  ];
+
+  const renderFeatureValue = (value: FeatureValue) => {
+    if (value === true) {
+      return (
+        <div className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-green-400 text-white text-sm font-bold">
+          ✓
+        </div>
+      );
+    } else if (value === false) {
+      return (
+        <div className="inline-flex items-center justify-center w-6 h-6 text-red-400 text-lg font-bold">
+          ✕
+        </div>
+      );
+    } else {
+      return (
+        <div className="inline-flex items-center justify-center">
+          <span className="text-yellow-400 text-xs font-medium px-2 py-1 bg-yellow-400/10 rounded border border-yellow-400/20">
+            {value.text}
+          </span>
+        </div>
+      );
+    }
+  };
+
   return (
-    <section className="px-4 lg:px-0  py-10 lg:py-20">
+    <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
       {/* Title Section */}
-      <div className="max-w-4xl mx-auto mb-10">
-        <h3 className="title">Why Texor.Cloud</h3>
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center">
+        <h2 className="title">Why Texor.Cloud</h2>
         <p className="text-title">
-          Most tools focus on just one layer of automation. Texor.Cloud
-          <br className="break" />
-          connects them all in one platform.
+          Most tools focus on just one layer of automation. Texor.Cloud{' '}
+          <br className="break" /> connects them all in one platform.
         </p>
       </div>
-      {/* Cards Container */}
-      <div className="text-[#C0C3C2] px-10 overflow-x-auto max-w-screen">
-        <div className="rounded-[20px] border-2 border-[#263D4D] bg-[#00050366] backdrop-blur-md overflow-hidden min-w-[600px] max-w-[1007px] h-[642px] w-full mx-auto">
+
+      {/* Mobile Accordion Layout (xs to md) */}
+      <div className="block lg:hidden space-y-3 sm:space-y-4">
+        {features.map((feature, index) => (
+          <div
+            key={`mobile-${index}`}
+            className="rounded-xl sm:rounded-2xl border border-slate-700/50 bg-slate-900/10 backdrop-blur-sm overflow-hidden"
+          >
+            {/* Feature Header */}
+            <div className="px-4 py-3 sm:px-6 sm:py-4 bg-slate-800/30 border-b border-slate-700/30">
+              <h3 className="text-white font-semibold text-sm sm:text-base">
+                {feature.name}
+              </h3>
+            </div>
+
+            {/* Platform Comparison Grid */}
+            <div className="p-3 sm:p-4">
+              <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                {platforms.map((platform) => (
+                  <div
+                    key={`${feature.name}-${platform.key}`}
+                    className={`flex items-center justify-between p-3 sm:p-4 rounded-lg border transition-all duration-200 ${
+                      platform.highlight
+                        ? 'border-blue-400/30 bg-blue-500/5 shadow-sm'
+                        : 'border-slate-600/30 bg-slate-800/20'
+                    }`}
+                  >
+                    <span
+                      className={`font-medium text-sm sm:text-base ${
+                        platform.highlight ? 'text-blue-300' : 'text-gray-300'
+                      }`}
+                    >
+                      {platform.name}
+                    </span>
+                    <div className="flex items-center ml-2">
+                      {renderFeatureValue(feature[platform.key])}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Table Layout */}
+      <div className="hidden lg:block text-[#C0C3C2] px-10">
+        <div className="rounded-[20px] border-2 border-[#263D4D] bg-[#00050366] backdrop-blur-md overflow-hidden max-w-[1007px] h-[642px] w-full mx-auto">
           <table className="text-left border-separate border-spacing-0 h-full w-full">
             <thead>
               <tr>
-                <th className="p-2 font-semibold border border-[#263D4D] ">
+                <th className="p-4 font-semibold border border-[#263D4D] text-left">
                   Feature
                 </th>
-                <th className="p-2 font-semibold border border-[#263D4D] ">
+                <th className="p-4 font-semibold border border-[#263D4D] text-center bg-accent/10">
                   TexorCloud
                 </th>
-                <th className="p-2 font-semibold border border-[#263D4D] ">
+                <th className="p-4 font-semibold border border-[#263D4D] text-center">
                   AutoGPT
                 </th>
-                <th className="p-2 font-semibold border border-[#263D4D] ">
+                <th className="p-4 font-semibold border border-[#263D4D] text-center">
                   Botpress
                 </th>
-                <th className="p-2 font-semibold border border-[#263D4D] ">
+                <th className="p-4 font-semibold border border-[#263D4D] text-center">
                   n8n
                 </th>
               </tr>
@@ -88,60 +184,28 @@ const WhyTextCloud = () => {
             <tbody>
               {features.map((feature, index) => (
                 <tr key={index} className="hover:bg-gray-800/70">
-                  <td className="p-2 border border-[#263D4D]">
+                  <td className="p-4 border border-[#263D4D] font-medium">
                     {feature.name}
                   </td>
-                  <td className="p-2 border border-[#263D4D]">
-                    {feature.texorCloud === true ? (
-                      <span className="text-background p-1 w-6 h-6 flex items-center justify-center rounded-md bg-green-400">
-                        ✔
-                      </span>
-                    ) : feature.texorCloud === false ? (
-                      <span className="text-red-400">✖</span>
-                    ) : (
-                      <span className="text-yellow-400">
-                        {feature.texorCloud}
-                      </span>
-                    )}
+                  <td className="p-4 border border-[#263D4D] text-center bg-accent/5">
+                    <div className="flex justify-center">
+                      {renderFeatureValue(feature.texorCloud)}
+                    </div>
                   </td>
-                  <td className="p-2 border border-[#263D4D]">
-                    {feature.autoGPT === true ? (
-                      <span className="text-background p-1 w-6 h-6 flex items-center justify-center rounded-md bg-green-400">
-                        ✔
-                      </span>
-                    ) : feature.autoGPT === false ? (
-                      <span className="text-red-400">✖</span>
-                    ) : (
-                      <span className="text-yellow-400">
-                        {feature.autoGPT.text}
-                      </span>
-                    )}
+                  <td className="p-4 border border-[#263D4D] text-center">
+                    <div className="flex justify-center">
+                      {renderFeatureValue(feature.autoGPT)}
+                    </div>
                   </td>
-                  <td className="p-2 border border-[#263D4D]">
-                    {feature.botpress === true ? (
-                      <span className="text-background p-1 w-6 h-6 flex items-center justify-center rounded-md bg-green-400">
-                        ✔
-                      </span>
-                    ) : feature.botpress === false ? (
-                      <span className="text-red-400">✖</span>
-                    ) : (
-                      <span className="text-yellow-400">
-                        {feature.botpress.text}
-                      </span>
-                    )}
+                  <td className="p-4 border border-[#263D4D] text-center">
+                    <div className="flex justify-center">
+                      {renderFeatureValue(feature.botpress)}
+                    </div>
                   </td>
-                  <td className="p-2 border border-[#263D4D]">
-                    {feature.n8n === true ? (
-                      <span className="text-background p-1 w-6 h-6 flex items-center justify-center rounded-md bg-green-400">
-                        ✔
-                      </span>
-                    ) : feature.n8n === false ? (
-                      <span className="text-red-400">✖</span>
-                    ) : (
-                      <span className="text-yellow-400">
-                        {feature.n8n.text}
-                      </span>
-                    )}
+                  <td className="p-4 border border-[#263D4D] text-center">
+                    <div className="flex justify-center">
+                      {renderFeatureValue(feature.n8n)}
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -153,4 +217,4 @@ const WhyTextCloud = () => {
   );
 };
 
-export default WhyTextCloud;
+export default WhyTexorCloud;

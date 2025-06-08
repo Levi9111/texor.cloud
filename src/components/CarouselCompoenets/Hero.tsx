@@ -13,7 +13,7 @@ const Hero = () => (
       All without writing code.
     </p>
 
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-5">
       <button className="w-[90%] sm:w-[220px] md:w-[249px] h-[64px] md:h-[74px] rounded-full text-xl md:text-2xl text-[#39373C] font-[500] bg-gradient-to-r from-[#3EFFBE] to-[#20E1A0] transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
         Building
       </button>

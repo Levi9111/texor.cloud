@@ -47,25 +47,28 @@ const steps = [
 
 const Features = () => {
   return (
-    <section className="px-4 lg:px-0  py-10 lg:py-20">
+    <section className="px-4 lg:px-0 py-10 lg:py-20">
       {/* Title Section */}
-      <div className="max-w-4xl mx-auto mb-8 ">
-        <h3 className="title">What You Can Do With Texor.Cloud</h3>
-        <p className="text-title">
+      <div className="max-w-4xl mx-auto mb-8 text-center">
+        <h3 className="title ">What You Can Do With Texor.Cloud</h3>
+        <p className="text-title mt-2">
           Texor.Cloud gives you a powerful set of tools to create, connect,
-          <br className="break" />
+          <br className="hidden sm:inline" />
           and launch AI agents without code.
         </p>
       </div>
+
       {/* Cards Container */}
-      {/* Desktop/Tablet View: Grid with Specific Arrow Directions */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8 gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`relative border border-accent rounded-lg w-[267px] h-[265px] p-4 flex flex-col justify-between`}
+            className="relative border border-accent rounded-lg p-5 flex flex-col justify-between  w-full"
+            style={{
+              minHeight: '220px',
+            }}
           >
-            <div className="w-12 h-12 rounded-lg border border-accent flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg border border-accent flex items-center justify-center mb-3">
               <img
                 src={step.icon}
                 alt={`${step.title} Icon`}
@@ -74,8 +77,12 @@ const Features = () => {
               />
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-400 text-sm ">{step.description}</p>
+              <h3 className="text-[20px] font-[650] leading-145 tracking-[-2%] mb-1 text-foreground">
+                {step.title}
+              </h3>
+              <p className="text-base text-[#a6a7a7] leading-145 tracking-0 font-[400]">
+                {step.description}
+              </p>
             </div>
           </div>
         ))}

@@ -46,19 +46,25 @@ const Footer = () => {
                   {/* Icons with links */}
                   <div className="flex justify-center items-center gap-2">
                     {step.icons.map((icon, iconIndex) => (
-                      <a
+                      <div
                         key={iconIndex}
-                        href={step.links[iconIndex]}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform duration-200 cursor-pointer"
+                        className="hover:scale-110 transition-transform  duration-200 cursor-pointer  h-[77px] w-20 rounded-[17px] border border-accent/20 p-2 flex items-center justify-center sm:h-[65px] sm:w-[68px] sm:rounded-[14px] sm:p-1.5 xs:h-[55px] xs:w-[58px] xs:rounded-[12px] xs:p-1"
                       >
-                        <img
-                          src={icon}
-                          alt={`${step.title} icon ${iconIndex + 1}`}
-                          className="w-10 h-10 sm:w-12 sm:h-12"
-                        />
-                      </a>
+                        <a
+                          href={step.links[iconIndex]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="h-full w-full flex items-center justify-center border border-accent/40 rounded-[13px] sm:rounded-[11px] xs:rounded-[9px]"
+                        >
+                          <img
+                            src={icon}
+                            alt={`${step.title} icon ${iconIndex + 1}`}
+                            width={29}
+                            height={29}
+                            className="sm:w-6 sm:h-6 xs:w-5 xs:h-5"
+                          />
+                        </a>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -90,7 +96,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="p-2 focus:outline-none rounded-[23px] border border-[#383838] w-full h-full placeholder:text-[20px] placeholder:text-muted placeholder:leading-[160] bg-transparent"
+                className="p-[26px] focus:outline-none rounded-[23px] border border-[#383838] w-full h-full placeholder:text-[20px] placeholder:text-muted placeholder:leading-[160] text-[20px] text-muted leading-[160] bg-transparent"
               />
               <button className="w-[190px] h-[60px] flex items-center justify-center bg-accent text-background rounded-xl absolute right-3 top-1/2 transform -translate-y-1/2">
                 Subscribe
