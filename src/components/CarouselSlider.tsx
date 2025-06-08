@@ -7,7 +7,6 @@ import UseCase from './CarouselCompoenets/ExampleOfUseCase';
 import WhyTextCloud from './CarouselCompoenets/WhyTextCloud';
 import Roadmap from './CarouselCompoenets/RoadMap';
 import Footer from './CarouselCompoenets/Footer';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 const slides = [
@@ -23,7 +22,6 @@ const slides = [
 
 interface CarouselProps {
   current: number;
-  setCurrentSlide: (currentSlide: number) => void;
   direction: number;
 }
 
@@ -42,7 +40,7 @@ const variants = {
   }),
 };
 
-const Carousel = ({ current, setCurrentSlide, direction }: CarouselProps) => {
+const Carousel = ({ current, direction }: CarouselProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -73,24 +71,6 @@ const Carousel = ({ current, setCurrentSlide, direction }: CarouselProps) => {
           {slides[current]}
         </motion.div>
       </AnimatePresence>
-
-      {/* mobile nav buttons */}
-      <div className="hidden w-full sflex items-center justify-center gap-4 pb-4 absolute bottom-0">
-        <button
-          className="w-10 h-10 rounded-full bg-[#263D4D]/70 border border-[#263D4D] backdrop-blur-md flex items-center justify-center"
-          onClick={() => setCurrentSlide(Math.max(current - 1, 0))}
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          className="w-10 h-10 rounded-full bg-[#263D4D]/70 border border-[#263D4D] backdrop-blur-md flex items-center justify-center"
-          onClick={() =>
-            setCurrentSlide(Math.min(current + 1, slides.length - 1))
-          }
-        >
-          <ChevronRight />
-        </button>
-      </div>
     </div>
   );
 };

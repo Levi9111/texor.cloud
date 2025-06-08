@@ -64,6 +64,12 @@ const App = () => {
     };
   }, [goWebsite, handleWheel]);
 
+  const handleSlideChange = (nextSlide: number) => {
+    const newDirection = nextSlide > currentSlide ? 1 : -1;
+    setDirection(newDirection);
+    setCurrentSlide(nextSlide);
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -72,18 +78,13 @@ const App = () => {
 
       {goWebsite && (
         <div className="relative w-full min-h-screen overflow-x-hidden">
-          <Navbar onNavigate={setCurrentSlide} currentSlide={currentSlide} />
+          <Navbar onNavigate={handleSlideChange} currentSlide={currentSlide} />
           <BackgroundVideo />
           <div className="relative z-10 flex items-center justify-center w-full h-full">
-            <Carousel
-              current={currentSlide}
-              direction={direction}
-              setCurrentSlide={setCurrentSlide}
-            />
+            <Carousel current={currentSlide} direction={direction} />
             <SlideNavigation
               current={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              totalSlides={MAX_SLIDES + 1}
+              setCurrentSlide={handleSlideChange}
             />
           </div>
         </div>
