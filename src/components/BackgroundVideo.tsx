@@ -1,5 +1,6 @@
 import bgVideo from '/videos/bg-video-1.mp4';
 import bgVideoMobile from '/videos/bg-video-mobile-1.mp4';
+import bgVideoImg from '/videos/bg-video-1-img.png';
 
 const BackgroundVideo = () => {
   return (
@@ -10,6 +11,7 @@ const BackgroundVideo = () => {
         muted
         loop
         playsInline
+        poster={bgVideoImg}
       >
         <source src={bgVideo} type="video/mp4" media="(min-width: 769px)" />
         <source

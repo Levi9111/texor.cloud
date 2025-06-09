@@ -1,6 +1,6 @@
 import right from '/icons/right-icom.png';
 import left from '/icons/left-icon.png';
-import mobileNavigation from '/icons/mobile-navigation.png';
+// import mobileNavigation from '/icons/mobile-navigation.png';
 
 interface SlideNavigationProps {
   current: number;

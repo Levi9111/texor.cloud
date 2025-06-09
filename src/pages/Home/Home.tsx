@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import CoverVideo from '../../components/CoverVideo';
 
 interface HomeProps {
-  setGoWebsite: React.Dispatch<React.SetStateAction<boolean>>;
+  setGoCoverPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const inspiringMessages = [
@@ -13,7 +13,7 @@ const inspiringMessages = [
   'Embrace the Future of AI-Native Automation',
 ];
 
-function Home({ setGoWebsite }: HomeProps) {
+function Home({ setGoCoverPage }: HomeProps) {
   const [loading, setLoading] = useState(true);
   const [loadingMessage, setLoadingMessage] = useState(inspiringMessages[0]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -92,12 +92,12 @@ function Home({ setGoWebsite }: HomeProps) {
       if (frame < 60) {
         requestAnimationFrame(animate);
       } else {
-        setGoWebsite(true);
+        setGoCoverPage(true);
       }
     };
 
     animate();
-  }, [triggerBurst, setGoWebsite]);
+  }, [triggerBurst, setGoCoverPage]);
 
   if (loading) {
     return (
