@@ -173,7 +173,7 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[999] flex items-start justify-center"
+          className="fixed inset-0 z-[999] flex items-start justify-center h-max"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)',

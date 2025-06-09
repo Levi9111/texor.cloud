@@ -60,9 +60,10 @@ const UseCase = ({
   const [isOpen, setIsOpen] = useState(false);
   const { overScrolledAtBottom, overScrolledAtTop } = useOverScroll(768);
 
-  if (overScrolledAtTop) onNavigation(4);
-  if (overScrolledAtBottom) onNavigation(6);
-
+  if (!isOpen) {
+    if (overScrolledAtTop) onNavigation(1);
+    if (overScrolledAtBottom) onNavigation(3);
+  }
   return (
     <section className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20 md:mt-10">
       {/* Title Section */}
@@ -70,7 +71,8 @@ const UseCase = ({
         <h3 className="title ">Example Use Cases</h3>
         <p className="text-title mt-2">
           These are just a few agent types you can build with Texor. Anything
-          with logic and data can be turned into an agent.
+          with <br className="break" /> logic and data can be turned into an
+          agent.
         </p>
       </div>
 
