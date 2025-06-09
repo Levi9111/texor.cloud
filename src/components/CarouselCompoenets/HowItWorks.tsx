@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Modal from '../ui/Modal';
 import Button from '../Button';
+import useOverScroll from '../../hooks/useOverScroll';
 
 const steps = [
   {
@@ -30,8 +31,16 @@ const steps = [
   },
 ];
 
-const HowItWorks = () => {
+const HowItWorks = ({
+  onNavigation,
+}: {
+  onNavigation: (index: number) => void;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { overScrolledAtBottom, overScrolledAtTop } = useOverScroll(768);
+
+  if (overScrolledAtTop) onNavigation(1);
+  if (overScrolledAtBottom) onNavigation(3);
 
   return (
     <section className="px-4 lg:px-0  py-10 lg:py-20 ">

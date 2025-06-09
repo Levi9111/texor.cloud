@@ -179,13 +179,13 @@ const Carousel = ({ current, direction, onNavigation }: CarouselProps) => {
 
   const slides = [
     <Hero key="slide1" onNavigation={onNavigation} />,
-    <OurMission key="slide2" />,
-    <HowItWorks key="slide3" />,
-    <Features key="slide4" />,
-    <WhyTextCloud key="slide5" />,
-    <UseCase key="slide6" />,
-    <Roadmap key="slide7" />,
-    <Footer key="slide8" />,
+    <OurMission key="slide2" onNavigation={onNavigation} />,
+    <HowItWorks key="slide3" onNavigation={onNavigation} />,
+    <Features key="slide4" onNavigation={onNavigation} />,
+    <WhyTextCloud key="slide5" onNavigation={onNavigation} />,
+    <UseCase key="slide6" onNavigation={onNavigation} />,
+    <Roadmap key="slide7" onNavigation={onNavigation} />,
+    <Footer key="slide8" onNavigation={onNavigation} />,
   ];
 
   return (

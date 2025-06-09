@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import useOverScroll from '../../hooks/useOverScroll';
 
 const steps = [
   {
@@ -18,7 +19,16 @@ const steps = [
   },
 ];
 
-const Footer = () => {
+const Footer = ({
+  onNavigation,
+}: {
+  onNavigation: (index: number) => void;
+}) => {
+  const { overScrolledAtBottom, overScrolledAtTop } = useOverScroll(768);
+
+  if (overScrolledAtTop) onNavigation(6);
+  if (overScrolledAtBottom) onNavigation(0);
+
   return (
     <footer className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20 md:mb-12">
       {/* Title Section */}

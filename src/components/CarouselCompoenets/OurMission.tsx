@@ -1,3 +1,4 @@
+import useOverScroll from '../../hooks/useOverScroll';
 import file from '/icons/file.png';
 
 const ourMissionData = [
@@ -7,37 +8,48 @@ const ourMissionData = [
   'Texor.Cloud is for builders turning ideas into logic and automation into action.',
 ];
 
-const OurMission = () => (
-  <div className="px-4 sm:px-6 md:px-10 lg:px-0 w-full flex flex-col items-center  py-10 lg:py-20 md:pb-0 pb-20 md:mb-12">
-    <h3 className="text-[38px] sm:text-[50px] md:text-[66px] font-[650] leading-[110%] tracking-0 text-center text-foreground">
-      Our mission
-    </h3>
+const OurMission = ({
+  onNavigation,
+}: {
+  onNavigation: (index: number) => void;
+}) => {
+  const { overScrolledAtBottom, overScrolledAtTop } = useOverScroll(768);
 
-    <p className="text-base sm:text-lg md:text-xl font-[400] leading-[160%] tracking-0 text-center mt-4 text-muted">
-      We believe automation should be open, flexible, and in the{' '}
-      <br className="hidden sm:block" /> hands of its creators.
-    </p>
+  if (overScrolledAtTop) onNavigation(0);
+  if (overScrolledAtBottom) onNavigation(2);
 
-    <div className="mt-10 sm:mt-[60px] w-full max-w-[985px] px-4 sm:px-7 py-6 sm:py-10 space-y-5 sm:space-y-6 bg-accent/2 backdrop-blur-[16px] rounded-[20px] border border-accent">
-      {ourMissionData.map((item, index) => (
-        <div
-          key={index}
-          className="flex items-start gap-3 text-start text-muted"
-        >
-          <img
-            src={file}
-            alt="File"
-            width={22}
-            height={22}
-            className="mt-[6px] w-[22px] h-[22px] sm:w-[26px] sm:h-[24px]"
-          />
-          <p className="text-[16px] sm:text-[18px] md:text-2xl font-[400] leading-[145%] tracking-0">
-            {item}
-          </p>
-        </div>
-      ))}
+  return (
+    <div className="px-4 sm:px-6 md:px-10 lg:px-0 w-full flex flex-col items-center  py-10 lg:py-20 md:pb-0 pb-20 md:mb-12">
+      <h3 className="text-[38px] sm:text-[50px] md:text-[66px] font-[650] leading-[110%] tracking-0 text-center text-foreground">
+        Our mission
+      </h3>
+
+      <p className="text-base sm:text-lg md:text-xl font-[400] leading-[160%] tracking-0 text-center mt-4 text-muted">
+        We believe automation should be open, flexible, and in the{' '}
+        <br className="hidden sm:block" /> hands of its creators.
+      </p>
+
+      <div className="mt-10 sm:mt-[60px] w-full max-w-[985px] px-4 sm:px-7 py-6 sm:py-10 space-y-5 sm:space-y-6 bg-accent/2 backdrop-blur-[16px] rounded-[20px] border border-accent">
+        {ourMissionData.map((item, index) => (
+          <div
+            key={index}
+            className="flex items-start gap-3 text-start text-muted"
+          >
+            <img
+              src={file}
+              alt="File"
+              width={22}
+              height={22}
+              className="mt-[6px] w-[22px] h-[22px] sm:w-[26px] sm:h-[24px]"
+            />
+            <p className="text-[16px] sm:text-[18px] md:text-2xl font-[400] leading-[145%] tracking-0">
+              {item}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default OurMission;

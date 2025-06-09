@@ -11,6 +11,7 @@ import roadmapNavigationActive from '/icons/navigation-icons/roadmap-navigation-
 import useCasesNavigationActive from '/icons/navigation-icons/use-cases-navigation-active.png';
 import whyTexorNavigationActive from '/icons/navigation-icons/why-texor-navigation-active.png';
 import clsx from 'clsx';
+import useOverScroll from '../../hooks/useOverScroll';
 
 const icons = [
   {
@@ -40,6 +41,9 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
   const mobileSubtitleRef = useRef<HTMLParagraphElement>(null);
   const iconsGridRef = useRef<HTMLDivElement>(null);
   const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const { overScrolledAtBottom } = useOverScroll(768);
+
+  if (overScrolledAtBottom) onNavigation(1);
 
   useEffect(() => {
     const initializeAnimations = () => {

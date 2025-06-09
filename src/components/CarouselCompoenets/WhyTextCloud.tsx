@@ -1,3 +1,5 @@
+import useOverScroll from '../../hooks/useOverScroll';
+
 interface WarningValue {
   type: 'warning';
   text: string;
@@ -78,7 +80,16 @@ const platforms: Platform[] = [
   { key: 'n8n', name: 'n8n', highlight: false },
 ];
 
-const WhyTexorCloud = () => {
+const WhyTexorCloud = ({
+  onNavigation,
+}: {
+  onNavigation: (index: number) => void;
+}) => {
+  const { overScrolledAtBottom, overScrolledAtTop } = useOverScroll(768);
+
+  if (overScrolledAtTop) onNavigation(3);
+  if (overScrolledAtBottom) onNavigation(5);
+
   const renderFeatureValue = (value: FeatureValue) => {
     if (value === true) {
       return (
