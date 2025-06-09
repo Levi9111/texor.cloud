@@ -290,6 +290,19 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
             >
               ✕
             </motion.button>
+
+            <motion.button
+              className="md:hidden absolute top-2 right-2 text-accent transition rounded-full size-9 flex items-center justify-center bg-gradient-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm cursor-pointer font-bold shadow-xl"
+              style={{
+                boxShadow:
+                  '0 8px 25px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
+              }}
+              onClick={onClose}
+              aria-label="Close modal"
+              variants={closeButtonVariants}
+            >
+              ✕
+            </motion.button>
           </motion.div>
         </motion.div>
       )}

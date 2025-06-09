@@ -44,7 +44,7 @@ const SlideNavigation = ({
           whileTap={{ scale: 0.9 }}
           className="w-12 h-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground shadow-[0_0_6px_rgba(62,255,190,0.4)] transition-all duration-200 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
           onClick={handlePrevious}
-          disabled={current === 0}
+          disabled={current === 0 || showFloatingButtons}
         >
           <img src={left} alt="Previous" className="w-5 h-5" />
         </motion.button>
@@ -66,7 +66,7 @@ const SlideNavigation = ({
           whileTap={{ scale: 0.9 }}
           className="w-12 h-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground shadow-[0_0_6px_rgba(62,255,190,0.4)] transition-all duration-200 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
           onClick={handleNext}
-          disabled={current === totalSlides - 1}
+          disabled={current === totalSlides - 1 || showFloatingButtons}
         >
           <img src={right} alt="Next" className="w-5 h-5" />
         </motion.button>

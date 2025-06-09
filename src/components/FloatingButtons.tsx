@@ -65,14 +65,14 @@ const FloatingButtons = ({
   return (
     <>
       <motion.section
-        className="fixed top-10 left-0 w-screen h-screen bg-background z-[100] md:hidden flex items-center justify-center"
+        className="fixed left-0 bottom-0 w-screen h-[130vh] bg-background z-[100] md:hidden flex items-center justify-center"
         initial="hidden"
         animate="visible"
         exit="exit"
         variants={containerVariants}
       >
         <motion.div
-          className="grid grid-cols-2 gap-x-6 gap-y-8 px-4"
+          className="grid grid-cols-2 gap-x-6 gap-y-8 px-4 mt-48"
           variants={containerVariants}
         >
           {icons.map((item, index) => (
