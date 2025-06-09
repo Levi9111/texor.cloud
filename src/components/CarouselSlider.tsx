@@ -43,17 +43,6 @@ const navItems = [
   { default: footerNavigation, active: footerNavigationActive },
 ];
 
-const slides = [
-  <Hero key="slide1" />,
-  <OurMission key="slide2" />,
-  <HowItWorks key="slide3" />,
-  <Features key="slide4" />,
-  <WhyTextCloud key="slide5" />,
-  <UseCase key="slide6" />,
-  <Roadmap key="slide7" />,
-  <Footer key="slide8" />,
-];
-
 const variants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 1000 : -1000,
@@ -109,6 +98,17 @@ const buttonVariants = {
 const Carousel = ({ current, direction, onNavigation }: CarouselProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const slides = [
+    <Hero key="slide1" onNavigation={onNavigation} />,
+    <OurMission key="slide2" />,
+    <HowItWorks key="slide3" />,
+    <Features key="slide4" />,
+    <WhyTextCloud key="slide5" />,
+    <UseCase key="slide6" />,
+    <Roadmap key="slide7" />,
+    <Footer key="slide8" />,
+  ];
+
   return (
     <div
       ref={containerRef}
@@ -131,7 +131,7 @@ const Carousel = ({ current, direction, onNavigation }: CarouselProps) => {
       </AnimatePresence>
 
       {/* Absolute Navigation - Clean positioning without background */}
-      <div className="hidden md:block absolute bottom-4 left-0 right-0 z-40 flex justify-center pointer-events-none ">
+      <div className="hidden md:block absolute bottom-4 left-0 right-0 z-40 md:flex justify-center pointer-events-none ">
         <motion.div
           className="flex gap-3 sm:gap-4 md:gap-6 pointer-events-auto"
           variants={navigationVariants}

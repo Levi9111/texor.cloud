@@ -1,4 +1,6 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import right from '/icons/right-icom.png';
+import left from '/icons/left-icon.png';
+import mobileNavigation from '/icons/mobile-navigation.png';
 
 interface SlideNavigationProps {
   current: number;
@@ -30,12 +32,12 @@ const SlideNavigation = ({
       <div className="flex items-center gap-4 pointer-events-auto">
         {/* Previous Button */}
         <button
-          className="size-10 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground hover:bg-accent/60 transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="size-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground hover:bg-accent/60 transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={handlePrevious}
           disabled={current === 0}
           aria-label="Previous slide"
         >
-          <ChevronLeft size={30} className="font-bold " />
+          <img src={left} alt="Previous slide" width={20} height={20} />
         </button>
 
         {/* Slide Indicators */}
@@ -63,12 +65,12 @@ const SlideNavigation = ({
 
         {/* Next Button */}
         <button
-          className="size-10 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground hover:bg-accent/60 transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="size-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground hover:bg-accent/60 transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={handleNext}
           disabled={current === totalSlides - 1}
           aria-label="Next slide"
         >
-          <ChevronRight size={30} className="font-bold " />
+          <img src={right} alt="Next slide" width={20} height={20} />
         </button>
       </div>
     </div>
