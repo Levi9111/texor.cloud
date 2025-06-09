@@ -60,7 +60,7 @@ const HowItWorks = ({
 
       {/* Cards Container */}
       <Modal onClose={() => setIsOpen(false)} isOpen={isOpen}>
-        <div className="relative max-w-5xl mx-auto md:pb-24 pb-20 min-h-screen flex flex-col justify-center">
+        <div className="relative max-w-5xl mx-auto md:pb-24 pb-20 min-h-screen md:flex md:flex-col md:justify-center ">
           {/* Mobile View: Single Column with Top-to-Bottom Arrows */}
           <div className="block lg:hidden space-y-8">
             {steps.map((step, index) => (
