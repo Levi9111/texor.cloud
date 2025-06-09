@@ -191,7 +191,7 @@ const Carousel = ({ current, direction, onNavigation }: CarouselProps) => {
   return (
     <motion.div
       ref={containerRef}
-      className="relative w-full md:min-h-[863px] h-full scrollable-container overflow-hidden"
+      className="relative w-full md:min-h-screen h-fit scrollable-container overflow-hidden"
       variants={containerVariants}
       initial="hidden"
       animate={controls}
@@ -268,7 +268,7 @@ const Carousel = ({ current, direction, onNavigation }: CarouselProps) => {
       </AnimatePresence>
 
       {/* Enhanced Navigation with dramatic entry */}
-      <div className="hidden md:block absolute bottom-4 left-0 right-0 z-40 md:flex justify-center pointer-events-none">
+      <div className="hidden absolute bottom-4 left-0 right-0 z-40 md:flex justify-center pointer-events-none">
         <motion.div
           className="flex gap-3 sm:gap-4 md:gap-6 pointer-events-auto"
           variants={navigationVariants}

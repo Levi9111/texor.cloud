@@ -192,7 +192,7 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
     <>
       <section
         ref={sectionRef}
-        className="base-width relative py-10 lg:py-20 md:pb-0 pb-20 flex"
+        className="base-width relative py-10 lg:py-20 md:pb-0 pb-20 mb-12 flex"
       >
         {/* Left Content */}
         <div className="max-w-[870px] w-full">

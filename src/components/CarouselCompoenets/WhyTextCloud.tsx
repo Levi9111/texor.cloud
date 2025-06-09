@@ -19,66 +19,66 @@ interface Platform {
   highlight: boolean;
 }
 
+const features: Feature[] = [
+  {
+    name: 'No-Code Visual Builder',
+    texorCloud: true,
+    autoGPT: false,
+    botpress: true,
+    n8n: true,
+  },
+  {
+    name: 'AI Model Integration',
+    texorCloud: true,
+    autoGPT: true,
+    botpress: true,
+    n8n: { type: 'warning', text: 'Basic OpenAI Support' },
+  },
+  {
+    name: 'On-Chain Interaction',
+    texorCloud: true,
+    autoGPT: false,
+    botpress: false,
+    n8n: false,
+  },
+  {
+    name: 'Agent Marketplace',
+    texorCloud: true,
+    autoGPT: false,
+    botpress: false,
+    n8n: false,
+  },
+  {
+    name: 'Workflow Automation',
+    texorCloud: true,
+    autoGPT: { type: 'warning', text: 'Prompt-chained only' },
+    botpress: { type: 'warning', text: 'Chat-focused only' },
+    n8n: true,
+  },
+  {
+    name: 'Multi-Platform Integration',
+    texorCloud: true,
+    autoGPT: { type: 'warning', text: 'Script-based only' },
+    botpress: true,
+    n8n: true,
+  },
+  {
+    name: 'Self-Hosting Option',
+    texorCloud: true,
+    autoGPT: true,
+    botpress: true,
+    n8n: true,
+  },
+];
+
+const platforms: Platform[] = [
+  { key: 'texorCloud', name: 'TexorCloud', highlight: true },
+  { key: 'autoGPT', name: 'AutoGPT', highlight: false },
+  { key: 'botpress', name: 'Botpress', highlight: false },
+  { key: 'n8n', name: 'n8n', highlight: false },
+];
+
 const WhyTexorCloud = () => {
-  const features: Feature[] = [
-    {
-      name: 'No-Code Visual Builder',
-      texorCloud: true,
-      autoGPT: false,
-      botpress: true,
-      n8n: true,
-    },
-    {
-      name: 'AI Model Integration',
-      texorCloud: true,
-      autoGPT: true,
-      botpress: true,
-      n8n: { type: 'warning', text: 'Basic OpenAI Support' },
-    },
-    {
-      name: 'On-Chain Interaction',
-      texorCloud: true,
-      autoGPT: false,
-      botpress: false,
-      n8n: false,
-    },
-    {
-      name: 'Agent Marketplace',
-      texorCloud: true,
-      autoGPT: false,
-      botpress: false,
-      n8n: false,
-    },
-    {
-      name: 'Workflow Automation',
-      texorCloud: true,
-      autoGPT: { type: 'warning', text: 'Prompt-chained only' },
-      botpress: { type: 'warning', text: 'Chat-focused only' },
-      n8n: true,
-    },
-    {
-      name: 'Multi-Platform Integration',
-      texorCloud: true,
-      autoGPT: { type: 'warning', text: 'Script-based only' },
-      botpress: true,
-      n8n: true,
-    },
-    {
-      name: 'Self-Hosting Option',
-      texorCloud: true,
-      autoGPT: true,
-      botpress: true,
-      n8n: true,
-    },
-  ];
-
-  const platforms: Platform[] = [
-    { key: 'texorCloud', name: 'TexorCloud', highlight: true },
-    { key: 'autoGPT', name: 'AutoGPT', highlight: false },
-    { key: 'botpress', name: 'Botpress', highlight: false },
-    { key: 'n8n', name: 'n8n', highlight: false },
-  ];
-
   const renderFeatureValue = (value: FeatureValue) => {
     if (value === true) {
       return (
@@ -104,7 +104,7 @@ const WhyTexorCloud = () => {
   };
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20 md:pb-0 pb-20">
+    <section className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20 md:pb-0 pb-20 md:mb-12">
       {/* Title Section */}
       <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center">
         <h2 className="title">Why Texor.Cloud</h2>
