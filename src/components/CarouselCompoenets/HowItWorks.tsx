@@ -43,7 +43,7 @@ const HowItWorks = ({
   if (overScrolledAtBottom) onNavigation(3);
 
   return (
-    <section className="px-4 lg:px-0  py-10 lg:py-20 ">
+    <section className="px-4 lg:px-0  py-10 lg:py-20 md:mt-10">
       {/* Title Section */}
       <div className="mb-10 mx-auto">
         <h3 className="title">How It Works</h3>

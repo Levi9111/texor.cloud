@@ -16,7 +16,7 @@ import useOverScroll from '../../hooks/useOverScroll';
 const icons = [
   {
     icon: homeNavigationActive,
-    title: 'Turn Logic Into Action <br /> With No-Code AI Agents',
+    title: 'Turn Logic Into Action  With No-Code AI Agents',
     navigation: 0,
   },
   { icon: ourMissionNavigationActive, title: 'Our Mission', navigation: 1 },
@@ -209,7 +209,7 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
 
           <h1
             ref={titleRef}
-            className="text-[42px] sm:text-[60px] md:text-[80px] font-[650] leading-[110%] tracking-[-0.03em] md:text-left text-center text-foreground"
+            className="text-[42px] sm:text-[60px] md:text-[72px] font-[650] leading-[110%] tracking-[-0.03em] md:text-left text-center text-foreground"
           >
             Turn Logic Into Action <br className="hidden sm:block" /> With
             No-Code AI Agents
@@ -217,7 +217,7 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
 
           <p
             ref={descriptionRef}
-            className="mt-6 mb-10 sm:mb-12 md:text-left text-center text-lg sm:text-xl md:text-2xl leading-[140%] tracking-0 font-[400] text-[#C0C3C2]"
+            className="mt-6 mb-10 sm:mb-14 md:text-left text-center text-lg sm:text-xl md:text-2xl leading-[140%] tracking-0 font-[400] text-[#C0C3C2]"
           >
             Texor.Cloud is your no-code platform for building and automating AI
             agents. <br className="hidden sm:block" />
@@ -253,7 +253,7 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
               <img
                 src={chevronBlack}
                 alt="Chevron Icon"
-                className="w-[18px] h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-3 h-4 transition-transform duration-300 group-hover:translate-x-1"
               />
             </button>
 
@@ -274,12 +274,12 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
                 <img
                   src={chevron}
                   alt="Chevron"
-                  className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:opacity-0 group-hover:translate-x-1"
+                  className="absolute inset-0 w-3 h-4 transition-all duration-300 group-hover:opacity-0 group-hover:translate-x-1"
                 />
                 <img
                   src={chevronBlack}
                   alt="Chevron Hover"
-                  className="absolute inset-0 w-full h-full opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
+                  className="absolute inset-0 w-3 h-4 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
                 />
               </div>
             </button>
@@ -297,7 +297,7 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
         <div className="flex-1 relative hidden md:block">
           <div
             ref={iconsGridRef}
-            className="absolute right-0 left-0 h-[500px] top-1/2 -translate-y-1/2 grid grid-cols-2 gap-x-12 gap-y-10 pr-10"
+            className="absolute -right-8 left-0 h-[500px] top-1/2 -translate-y-1/2 grid grid-cols-2 gap-x-12 gap-y-10 pr-10"
           >
             {icons.map((item, index) => (
               <div

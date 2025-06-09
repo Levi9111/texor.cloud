@@ -53,7 +53,7 @@ const Button: React.FC<StepsButtonProps> = ({
           alt="Chevron Icon"
           width={19}
           height={12}
-          className="w-2 md:w-[19px] h-3 md:h-[12px]"
+          className="w-2 md:w-[12px] h-3 md:h-[12px]"
         />
       </motion.button>
     </div>

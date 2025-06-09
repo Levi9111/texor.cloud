@@ -83,7 +83,7 @@ const AudioPlayer = ({ autoPlay = true }: AudioPlayerProps) => {
       <audio ref={audioRef} src={infiniteCircuits} preload="auto" />
 
       <div
-        className={`fixed md:bottom-4 bottom-16 right-4 z-50 transition-all duration-300 ease-out ${
+        className={`fixed bottom-4 right-4 z-50 transition-all duration-300 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
         } ${!isPlaying ? 'slow-bounce' : ''}`}
         onMouseEnter={handleMouseEnter}

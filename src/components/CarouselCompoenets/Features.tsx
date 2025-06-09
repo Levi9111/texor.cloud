@@ -62,7 +62,7 @@ const Features = ({
   if (overScrolledAtBottom) onNavigation(4);
 
   return (
-    <section className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20">
+    <section className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20 md:mt-10">
       {/* Title Section */}
       <div className="max-w-4xl mx-auto mb-8 text-center">
         <h3 className="title ">What You Can Do With Texor.Cloud</h3>
