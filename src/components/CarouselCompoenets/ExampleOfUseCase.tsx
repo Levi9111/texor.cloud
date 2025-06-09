@@ -80,7 +80,7 @@ const UseCase = ({
 
       {/* Cards Container */}
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-5 mx-auto z-40">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-5 mx-auto z-40 h-full">
           {steps.map((step, index) => (
             <div
               key={index}
