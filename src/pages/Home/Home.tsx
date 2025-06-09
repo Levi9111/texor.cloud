@@ -4,6 +4,7 @@ import CoverVideo from '../../components/CoverVideo';
 
 interface HomeProps {
   setGoCoverPage: React.Dispatch<React.SetStateAction<boolean>>;
+  // setAudioStart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const inspiringMessages = [
@@ -32,6 +33,7 @@ function Home({ setGoCoverPage }: HomeProps) {
     }, 2500);
 
     // End loading after 10 seconds
+    // End loading after 10 seconds and start audio immediately
     const timeout = setTimeout(() => {
       clearInterval(interval);
       setLoading(false);
@@ -92,6 +94,7 @@ function Home({ setGoCoverPage }: HomeProps) {
       if (frame < 60) {
         requestAnimationFrame(animate);
       } else {
+        // setAudioStart(true);
         setGoCoverPage(true);
       }
     };
@@ -312,7 +315,11 @@ function Home({ setGoCoverPage }: HomeProps) {
               onClick={() => setTriggerBurst(true)}
               className="relative cursor-pointer group"
               animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >

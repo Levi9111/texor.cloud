@@ -19,11 +19,14 @@ function useOverScroll(minWidth: number = 768): OverScrollState {
     if (typeof window === 'undefined') return;
 
     // Always apply logic (no minWidth restriction)
-    const shouldApplyLogic = (): boolean => true;
+    const shouldApplyLogic = (): boolean => window.innerWidth >= minWidth;
 
     // Touch handling for mobile
     let touchStartY = 0;
     let touchMoveY = 0;
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    let isScrolling = false;
 
     const getScrollInfo = () => {
       const scrollTop = window.scrollY || window.pageYOffset;
@@ -77,6 +80,7 @@ function useOverScroll(minWidth: number = 768): OverScrollState {
       if (!shouldApplyLogic()) return;
 
       touchStartY = event.touches[0].clientY;
+      isScrolling = false;
     };
 
     // Touch move handler
@@ -87,6 +91,7 @@ function useOverScroll(minWidth: number = 768): OverScrollState {
       const touchDelta = touchStartY - touchMoveY;
 
       if (Math.abs(touchDelta) > 5) {
+        isScrolling = true;
         const { atTop, atBottom } = getScrollInfo();
 
         const isScrollingUp = touchDelta < 0;
@@ -112,6 +117,7 @@ function useOverScroll(minWidth: number = 768): OverScrollState {
 
       touchStartY = 0;
       touchMoveY = 0;
+      isScrolling = false;
     };
 
     // Regular scroll handler

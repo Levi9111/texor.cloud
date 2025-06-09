@@ -1,5 +1,3 @@
 1. update the music logic so that it plays from the first page
 
 2. add an effect where the texts will change colors on scroll
-
-3. add the mouse scroll effect again

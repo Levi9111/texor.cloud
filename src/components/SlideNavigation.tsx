@@ -42,7 +42,7 @@ const SlideNavigation = ({
         {/* Previous */}
         <motion.button
           whileTap={{ scale: 0.9 }}
-          className="w-12 h-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground shadow-[0_0_6px_rgba(62,255,190,0.4)] transition-all duration-200 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="w-12 h-12 rounded-full  flex items-center justify-center text-foreground transition-all duration-200 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
           onClick={handlePrevious}
           disabled={current === 0 || showFloatingButtons}
         >
@@ -56,7 +56,7 @@ const SlideNavigation = ({
             setShowFloatingButtons &&
             setShowFloatingButtons(!showFloatingButtons)
           }
-          className="w-12 h-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground shadow-[0_0_6px_rgba(62,255,190,0.4)] transition-all duration-200 animate-pulse-glow"
+          className="w-12 h-12 rounded-full bg-accent/10 border border-accent backdrop-blur-md flex items-center justify-center text-foreground  transition-all duration-200 animate-pulse-glow"
         >
           <img src={mobileNavigation} alt="Navigate" className="w-5 h-5" />
         </motion.button>
@@ -64,7 +64,7 @@ const SlideNavigation = ({
         {/* Next */}
         <motion.button
           whileTap={{ scale: 0.9 }}
-          className="w-12 h-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground shadow-[0_0_6px_rgba(62,255,190,0.4)] transition-all duration-200 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="w-12 h-12 rounded-full flex items-center justify-center text-foreground transition-all duration-200 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
           onClick={handleNext}
           disabled={current === totalSlides - 1 || showFloatingButtons}
         >

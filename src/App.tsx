@@ -25,17 +25,20 @@ const App = () => {
   return (
     <div>
       <AnimatePresence>
-        {!goCoverPage && !goWebsite && <Home setGoCoverPage={setGoCoverPage} />}
+        {!goCoverPage && !goWebsite && (
+          <>
+            <Home setGoCoverPage={setGoCoverPage} />
+          </>
+        )}
       </AnimatePresence>
 
       {!goWebsite && goCoverPage && <CoverPage setGoWebsite={setGoWebsite} />}
 
       {goWebsite && (
         <div className="relative w-full min-h-screen overflow-x-hidden">
+          <AudioPlayer autoPlay={true} />
           <Navbar onNavigate={handleSlideChange} currentSlide={currentSlide} />
           <BackgroundVideo />
-
-          <AudioPlayer autoPlay={true} />
 
           <div className="relative z-10 flex items-center justify-center w-full h-full">
             <Carousel
