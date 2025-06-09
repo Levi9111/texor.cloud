@@ -369,54 +369,6 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
           </div>
         </div>
       </section>
-
-      <style>{`
-        @keyframes title-glow {
-          0%,
-          100% {
-            text-shadow: 0 0 20px rgba(62, 255, 190, 0.3);
-          }
-          50% {
-            text-shadow: 0 0 30px rgba(62, 255, 190, 0.5),
-              0 0 40px rgba(62, 255, 190, 0.2);
-          }
-        }
-
-        @keyframes button-bounce {
-          0% {
-            transform: scale(0.8);
-          }
-          50% {
-            transform: scale(1.05);
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-
-        @keyframes icon-float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-5px);
-          }
-        }
-
-        @keyframes shimmer {
-          0% {
-            left: -100%;
-          }
-          100% {
-            left: 100%;
-          }
-        }
-
-        .group:hover .icon-container {
-          animation: none;
-        }
-      `}</style>
     </>
   );
 };

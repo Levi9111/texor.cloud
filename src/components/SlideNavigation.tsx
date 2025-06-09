@@ -8,12 +8,16 @@ interface SlideNavigationProps {
   setCurrentSlide: (currentSlide: number) => void;
   totalSlides?: number;
   showIndicators?: boolean;
+  showFloatingButtons: boolean;
+  setShowFloatingButtons?: (show: boolean) => void;
 }
 
 const SlideNavigation = ({
   current,
   setCurrentSlide,
   totalSlides = 8,
+  setShowFloatingButtons,
+  showFloatingButtons,
 }: SlideNavigationProps) => {
   const handlePrevious = () => {
     setCurrentSlide(Math.max(current - 1, 0));
@@ -25,7 +29,7 @@ const SlideNavigation = ({
 
   return (
     <motion.div
-      className="fixed bottom-0 left-0 right-0 pb-4 flex justify-center items-center z-50 pointer-events-none md:hidden"
+      className="fixed bottom-0 left-0 right-0 pb-4 flex justify-center items-center z-[999] pointer-events-none md:hidden"
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 100, damping: 14, delay: 0.3 }}
@@ -48,6 +52,10 @@ const SlideNavigation = ({
         {/* Center */}
         <motion.button
           whileTap={{ scale: 0.9 }}
+          onClick={() =>
+            setShowFloatingButtons &&
+            setShowFloatingButtons(!showFloatingButtons)
+          }
           className="w-12 h-12 rounded-full bg-accent/40 border border-accent backdrop-blur-md flex items-center justify-center text-foreground shadow-[0_0_6px_rgba(62,255,190,0.4)] transition-all duration-200 animate-pulse-glow"
         >
           <img src={mobileNavigation} alt="Navigate" className="w-5 h-5" />
