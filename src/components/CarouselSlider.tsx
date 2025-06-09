@@ -112,7 +112,7 @@ const Carousel = ({ current, direction, onNavigation }: CarouselProps) => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-screen h-full scrollable-container"
+      className="relative w-full md:min-h-[863px] h-full scrollable-container"
     >
       {/* Slide Content */}
       <AnimatePresence custom={direction} mode="wait">
@@ -124,14 +124,14 @@ const Carousel = ({ current, direction, onNavigation }: CarouselProps) => {
           animate="center"
           exit="exit"
           transition={{ duration: 0.6, ease: 'easeInOut' }}
-          className="absolute top-0 left-0 w-full h-full"
+          className=" w-full h-full overflow-hidden"
         >
           {slides[current]}
         </motion.div>
       </AnimatePresence>
 
       {/* Absolute Navigation - Clean positioning without background */}
-      <div className="absolute -bottom-40 left-0 right-0 z-40 flex justify-center pointer-events-none h-20">
+      <div className="hidden md:block absolute bottom-4 left-0 right-0 z-40 flex justify-center pointer-events-none ">
         <motion.div
           className="flex gap-3 sm:gap-4 md:gap-6 pointer-events-auto"
           variants={navigationVariants}
