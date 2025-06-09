@@ -155,7 +155,7 @@ const HowItWorks = ({
                 <h3 className="text-xl font-semibold mb-2">{steps[2].title}</h3>
                 <p className="text-gray-400 text-sm ">{steps[2].description}</p>
               </div>
-              <div className="absolute top-1/2 -right-24 transform -translate-x-1/2">
+              <div className="absolute top-1/2 -right-[121px] transform -translate-x-1/2">
                 <img
                   src="/assets/images/arrow-log.svg"
                   alt="Arrow Right"
