@@ -70,7 +70,7 @@ const Roadmap = ({
 
       {/* Cards Container */}
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="flex md:flex-row flex-col justify-center items-center gap-6 max-w-[1630px] w-[97%] mx-auto">
+        <div className="flex md:flex-row flex-col justify-center items-center md:gap-6 gap-3 max-w-[1630px] w-[97%] mx-auto">
           {steps.map((step, index) => (
             <div
               key={index}
