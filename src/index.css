@@ -63,6 +63,10 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
   }
+
+
+  
+
   .scrollable-container {
           /* WebKit browsers (Chrome, Safari, Edge) */
           scrollbar-width: thin;
@@ -150,3 +154,16 @@ body {
           border: none;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
+        .hidden-scrollbar {
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* Internet Explorer 10+ */
+          overflow: -moz-scrollbars-none; /* Old Firefox */
+        }
+
+        .hidden-scrollbar::-webkit-scrollbar {
+          display: none; /* Chrome, Safari */
+        }
+        .hidden-scrollbar::-webkit-scrollbar-track {
+          background: transparent; /* Chrome, Safari */
+        } 

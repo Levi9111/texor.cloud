@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import Button from '../Button';
+import Modal from '../ui/Modal';
+
 const steps = [
   {
     title: 'Portfolio AI Agent',
@@ -48,6 +52,8 @@ const steps = [
 ];
 
 const UseCase = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20">
       {/* Title Section */}
@@ -59,40 +65,50 @@ const UseCase = () => {
         </p>
       </div>
 
+      <Button onClick={() => setIsOpen(true)}>Use Case</Button>
+
       {/* Cards Container */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-5 max-w-[1352px] w-[97%] mx-auto">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className="w-full md:min-h-[256px] border border-accent p-5 rounded-lg flex flex-col gap-4"
-          >
-            <div className="border border-accent/20 rounded-xl p-2 w-14 h-14">
-              <div className="border border-accent rounded-[10px] flex items-center justify-center w-full h-full">
-                <img
-                  className="rounded-xl"
-                  src={step.icon}
-                  alt={`${step.title} Icon`}
-                  width={26}
-                  height={26}
-                />
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-5 mx-auto z-40">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="w-full md:min-h-[256px] border border-accent p-5 rounded-lg flex flex-col gap-4"
+            >
+              <div className="border border-accent/20 rounded-xl p-2 w-14 h-14">
+                <div className="border border-accent rounded-[10px] flex items-center justify-center w-full h-full">
+                  <img
+                    className="rounded-xl"
+                    src={step.icon}
+                    alt={`${step.title} Icon`}
+                    width={26}
+                    height={26}
+                  />
+                </div>
               </div>
+              <div className="flex-1">
+                <h3 className="text-[20px] font-[650] leading-145 tracking-[-2%] mb-1 text-white">
+                  {step.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-145 tracking-[-1%] font-[400] ">
+                  {step.description}
+                </p>
+              </div>
+              {index === 0 && (
+                <a
+                  href="https://t.me/texorwallet_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="mt-4 w-[103px] h-[34px] rounded-lg border border-accent text-[15px] text-foreground leading-145 tracking-0 capitalize hover:bg-accent hover:text-background transition-colors duration-300 cursor-pointer">
+                    Try it out
+                  </button>
+                </a>
+              )}
             </div>
-            <div className="flex-1">
-              <h3 className="text-[20px] font-[650] leading-145 tracking-[-2%] mb-1 text-white">
-                {step.title}
-              </h3>
-              <p className="text-gray-400 text-sm leading-145 tracking-[-1%] font-[400] ">
-                {step.description}
-              </p>
-            </div>
-            {index === 0 && (
-              <button className="mt-4 w-[103px] h-[34px] rounded-lg border border-accent text-[15px] text-foreground leading-145 tracking-0 capitalize hover:bg-accent hover:text-background transition-colors duration-300 cursor-pointer">
-                Try it out
-              </button>
-            )}
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Modal>
     </section>
   );
 };

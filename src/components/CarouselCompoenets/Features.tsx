@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import Modal from '../ui/Modal';
+import Button from '../Button';
+
 const steps = [
   {
     title: 'No-Code Agent Builder',
@@ -46,6 +50,8 @@ const steps = [
 ];
 
 const Features = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20">
       {/* Title Section */}
@@ -58,35 +64,39 @@ const Features = () => {
         </p>
       </div>
 
+      <Button onClick={() => setIsOpen(true)}>Benefits</Button>
+
       {/* Cards Container */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className="relative border border-accent rounded-lg p-5 flex flex-col justify-between  w-full"
-            style={{
-              minHeight: '220px',
-            }}
-          >
-            <div className="w-12 h-12 rounded-lg border border-accent flex items-center justify-center mb-3">
-              <img
-                src={step.icon}
-                alt={`${step.title} Icon`}
-                width={26}
-                height={26}
-              />
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="relative border border-accent rounded-lg p-5 flex flex-col justify-between  w-full"
+              style={{
+                minHeight: '220px',
+              }}
+            >
+              <div className="w-12 h-12 rounded-lg border border-accent flex items-center justify-center mb-3">
+                <img
+                  src={step.icon}
+                  alt={`${step.title} Icon`}
+                  width={26}
+                  height={26}
+                />
+              </div>
+              <div>
+                <h3 className="text-[20px] font-[650] leading-145 tracking-[-2%] mb-1 text-foreground">
+                  {step.title}
+                </h3>
+                <p className="text-base text-[#a6a7a7] leading-145 tracking-0 font-[400]">
+                  {step.description}
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-[20px] font-[650] leading-145 tracking-[-2%] mb-1 text-foreground">
-                {step.title}
-              </h3>
-              <p className="text-base text-[#a6a7a7] leading-145 tracking-0 font-[400]">
-                {step.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Modal>
     </section>
   );
 };

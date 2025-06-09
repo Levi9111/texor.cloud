@@ -18,7 +18,7 @@ const steps = [
 
 const Footer = () => {
   return (
-    <footer className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20">
+    <footer className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-28 ">
       {/* Title Section */}
       <div className="mb-8">
         <h3 className="title">Stay Connected</h3>

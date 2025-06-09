@@ -34,7 +34,7 @@ const Navbar = ({ onNavigate, currentSlide }: NavbarProps) => {
 
   return (
     <>
-      <nav className="max-w-[1488px] w-[96%] h-[63px] pt-11 mx-auto flex items-center justify-between relative z-50 mb-[60px]">
+      <nav className="max-w-[1488px] w-[96%] h-[63px] pt-11 mx-auto flex items-center justify-between relative z-40 mb-[60px]">
         {/* Logo */}
         <div
           className={`flex items-center justify-center gap-3 cursor-pointer transition-all duration-300 ${

@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import Button from '../Button';
+import Modal from '../ui/Modal';
+
 const steps = [
   {
     title: 'Foundation',
@@ -38,7 +42,8 @@ const steps = [
 ];
 
 const Roadmap = () => {
-  console.log(window.innerWidth);
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20">
       {/* Title Section */}
@@ -51,46 +56,50 @@ const Roadmap = () => {
         </p>
       </div>
 
+      <Button onClick={() => setIsOpen(true)}>Plans</Button>
+
       {/* Cards Container */}
-      <div className="flex md:flex-row flex-col justify-center items-center gap-6 max-w-[1630px] w-[97%] mx-auto">
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            className={`relative bg-blur/20 backdrop-blur-md border border-[#161616] p-3 rounded-[36px] overflow-hidden 
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className="flex md:flex-row flex-col justify-center items-center gap-6 max-w-[1630px] w-[97%] mx-auto">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className={`relative bg-blur/20 backdrop-blur-md border border-[#161616] p-3 rounded-[36px] overflow-hidden 
               w-full sm:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] xl:w-[470px] 2xl:w-[487px]
               ${
                 index === 1
                   ? 'min-h-[400px] sm:min-h-[500px] lg:min-h-[596px]'
                   : 'min-h-[350px] sm:min-h-[450px] lg:min-h-[510px]'
               }`}
-          >
-            <div className="w-full h-full border border-accent rounded-[25px] pt-6 sm:pt-9 pr-4 sm:pr-5 pl-4 sm:pl-6 pb-6">
-              <div className="mb-2">
-                <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] font-[650] text-accent leading-140 tracking-0 mb-4 sm:mb-6">
-                  {step.phase}
-                </h4>
+            >
+              <div className="w-full h-full border border-accent rounded-[25px] pt-6 sm:pt-9 pr-4 sm:pr-5 pl-4 sm:pl-6 pb-6">
+                <div className="mb-2">
+                  <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] font-[650] text-accent leading-140 tracking-0 mb-4 sm:mb-6">
+                    {step.phase}
+                  </h4>
+                </div>
+                <h3 className="text-[28px] sm:text-[36px] lg:text-[40px] font-[650] leading-145 tracking-[-2%] mb-3 sm:mb-4">
+                  {step.title}
+                </h3>
+                {/* options */}
+                <ul className="space-y-3">
+                  {step.options.map((option: string, index: number) => (
+                    <li
+                      key={index}
+                      className="flex items-start justify-start gap-2"
+                    >
+                      <span className="inline-block size-1 rounded-full bg-muted mt-2" />
+                      <p className="text-[16px] sm:text-[18px] lg:text-[20px] font-[400] leading-[145%] tracking-0 text-[#a6a7a7]">
+                        {option}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-[28px] sm:text-[36px] lg:text-[40px] font-[650] leading-145 tracking-[-2%] mb-3 sm:mb-4">
-                {step.title}
-              </h3>
-              {/* options */}
-              <ul className="space-y-3">
-                {step.options.map((option: string, index: number) => (
-                  <li
-                    key={index}
-                    className="flex items-start justify-start gap-2"
-                  >
-                    <span className="inline-block size-1 rounded-full bg-muted mt-2" />
-                    <p className="text-[16px] sm:text-[18px] lg:text-[20px] font-[400] leading-[145%] tracking-0 text-[#a6a7a7]">
-                      {option}
-                    </p>
-                  </li>
-                ))}
-              </ul>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Modal>
     </section>
   );
 };

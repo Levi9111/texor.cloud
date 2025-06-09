@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Play, Pause } from 'lucide-react';
+import infiniteCircuits from '/audio/infinite-circuits.mp3';
 
 interface AudioPlayerProps {
-  audioSrc: string;
   autoPlay?: boolean;
 }
 
-const AudioPlayer = ({ audioSrc, autoPlay = false }: AudioPlayerProps) => {
+const AudioPlayer = ({ autoPlay = true }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -86,7 +86,7 @@ const AudioPlayer = ({ audioSrc, autoPlay = false }: AudioPlayerProps) => {
 
   return (
     <>
-      <audio ref={audioRef} src={audioSrc} preload="auto" />
+      <audio ref={audioRef} src={infiniteCircuits} preload="auto" />
 
       <div
         className={`fixed md:bottom-4 bottom-16 right-4 z-50 transition-all duration-300 ease-out ${
