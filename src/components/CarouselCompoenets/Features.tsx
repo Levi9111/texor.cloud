@@ -59,8 +59,8 @@ const Features = ({
   const { overScrolledAtBottom, overScrolledAtTop } = useOverScroll(768);
 
   if (!isOpen) {
-    if (overScrolledAtTop) onNavigation(1);
-    if (overScrolledAtBottom) onNavigation(3);
+    if (overScrolledAtTop) onNavigation(2);
+    if (overScrolledAtBottom) onNavigation(4);
   }
   return (
     <section className="px-4 lg:px-0 py-10 lg:py-20 md:pb-0 pb-20 md:mt-10">
