@@ -74,7 +74,17 @@ const Navbar = ({ onNavigate, currentSlide }: NavbarProps) => {
         </ul>
 
         {/* Docs button */}
-        <button className="hidden md:block w-[183px] h-[63px] rounded-full border-2 border-accent text-[22px] font-[400] leading-140 tracking-0 cursor-pointer hover:bg-accent text-muted hover:text-background transition-colors duration-300 shadow-sm">
+        <button
+          className="group hidden md:flex w-[183px] h-[63px] rounded-full border-2 border-accent text-[22px] font-[400] leading-[140%] tracking-0 cursor-pointer hover:bg-accent text-muted hover:text-background transition-all duration-300 shadow-sm hover:shadow-xl hover:scale-105 relative overflow-hidden items-center justify-center gap-8 uppercase"
+          style={{ transform: 'scale(0.95)' }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow =
+              '0 0 20px rgba(62, 255, 190, 0.5), inset 0 0 20px rgba(62, 255, 190, 0.1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '';
+          }}
+        >
           Docs
         </button>
 
