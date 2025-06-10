@@ -275,7 +275,7 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
 
           <p
             ref={mobileSubtitleRef}
-            className="md:hidden text-[#e7e7e8] text-center text-xl font-[500] leading-[140%] tracking-0 mt-10 md:mt-11"
+            className="md:hidden text-[#e7e7e8] text-center text-lg font-[500] leading-[140%] tracking-0 mt-10 md:mt-11"
           >
             A new way to build and automate with AI
           </p>
