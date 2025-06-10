@@ -296,14 +296,14 @@ const CoverPage = ({
 
       <h1
         ref={titleRef}
-        className="text-4xl md:text-[88px] font-[750] text-foreground leading-[120%] md:leading-110 tracking-0 md:tracking-[-3%] text-center mt-[190px] relative z-[5]"
+        className="text-4xl md:text-[88px] font-[750] text-foreground leading-[120%] md:leading-[100%] tracking-0 md:tracking-[-3%] text-center mt-[190px] relative z-[5]"
       >
         Build and Run Real <br className="break" /> AI Agents
       </h1>
 
       <p
         ref={descRef}
-        className="text-[15px] md:text-2xl text-muted text-center font-[400] mt-3 md:mt-6 mb-20 leading-[170%] md:leading-140 tracking-0 relative z-[5]"
+        className="text-[15px] md:text-2xl text-muted text-center font-[400] mt-3 md:mt-6 mb-20 leading-[170%] md:leading-150 tracking-0 relative z-[5]"
       >
         Texor.Cloud lets you build real AI agents that automate tasks across
         apps,
@@ -318,7 +318,7 @@ const CoverPage = ({
         onClick={performExitAnimation}
         disabled={isExiting}
         className="
-          w-16 h-16 md:w-20 md:h-20 
+          w-16 h-16  
           rounded-full border border-accent 
           flex items-center justify-center cursor-pointer 
           transition-all duration-300
