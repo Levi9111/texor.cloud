@@ -109,11 +109,11 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
           titleRef.current.style.transition =
             'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
 
-          // Add typing effect shimmer
-          titleRef.current.style.textShadow =
-            '0 0 20px rgba(62, 255, 190, 0.3)';
-          titleRef.current.style.animation =
-            'title-glow 2s ease-in-out infinite';
+          // // Add typing effect shimmer
+          // titleRef.current.style.textShadow =
+          //   '0 0 20px rgba(62, 255, 190, 0.3)';
+          // titleRef.current.style.animation =
+          //   'title-glow 2s ease-in-out infinite';
         }
       }, 600);
 
@@ -211,8 +211,8 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
             ref={titleRef}
             className="text-[42px] sm:text-[60px] md:text-[72px] font-[650] leading-[110%] tracking-[-0.03em] md:text-left text-center text-foreground"
           >
-            Turn Logic Into Action <br className="hidden sm:block" /> With
-            No-Code AI Agents
+            Turn Logic Into Action <br className="break" /> With No-Code AI
+            Agents
           </h1>
 
           <p
