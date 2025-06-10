@@ -34,9 +34,10 @@ const App = () => {
 
       {!goWebsite && goCoverPage && <CoverPage setGoWebsite={setGoWebsite} />}
 
+      {goCoverPage && <AudioPlayer autoPlay={true} />}
+
       {goWebsite && (
         <div className="relative w-full min-h-screen overflow-x-hidden">
-          <AudioPlayer autoPlay={true} />
           <Navbar onNavigate={handleSlideChange} currentSlide={currentSlide} />
           <BackgroundVideo />
 
