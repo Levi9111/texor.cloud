@@ -141,9 +141,14 @@ const Navbar = ({ onNavigate, currentSlide }: NavbarProps) => {
                 </li>
               ))}
               <li>
-                <button className="mt-6 w-full h-[50px] rounded-full border-2 border-accent text-[20px] font-[400] tracking-0 cursor-pointer hover:bg-accent text-white hover:text-background transition-colors duration-300 shadow-md">
-                  Docs
-                </button>
+                <a
+                  href="https://docsend.com/v/5c46y/texor-cloud_pitch_deck"
+                  target="_black"
+                >
+                  <button className="mt-6 w-full h-[50px] rounded-full border-2 border-accent text-[20px] font-[400] tracking-0 cursor-pointer hover:bg-accent text-white hover:text-background transition-colors duration-300 shadow-md">
+                    Docs
+                  </button>
+                </a>
               </li>
             </ul>
           </motion.div>
