@@ -142,21 +142,21 @@ const CoverPage = ({
         'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
     }
 
-    const lightBurst = document.createElement('div');
-    lightBurst.style.cssText = `
-      position: fixed;
-      left: 50%;
-      top: 60%;
-      width: 10px;
-      height: 10px;
-      background: radial-gradient(circle, rgba(0, 245, 212, 0.8) 0%, rgba(0, 245, 212, 0.3) 30%, transparent 70%);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      pointer-events: none;
-      z-index: 50;
-      animation: light-burst 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    `;
-    document.body.appendChild(lightBurst);
+    // const lightBurst = document.createElement('div');
+    // lightBurst.style.cssText = `
+    //   position: fixed;
+    //   left: 50%;
+    //   top: 60%;
+    //   width: 10px;
+    //   height: 10px;
+    //   background: radial-gradient(circle, rgba(0, 245, 212, 0.8) 0%, rgba(0, 245, 212, 0.3) 30%, transparent 70%);
+    //   border-radius: 50%;
+    //   transform: translate(-50%, -50%) scale(0);
+    //   pointer-events: none;
+    //   z-index: 50;
+    //   animation: light-burst 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    // `;
+    // document.body.appendChild(lightBurst);
 
     setTimeout(() => {
       if (descRef.current) {
@@ -219,9 +219,9 @@ const CoverPage = ({
     }, 800);
 
     setTimeout(() => {
-      if (lightBurst.parentNode) {
-        lightBurst.parentNode.removeChild(lightBurst);
-      }
+      // if (lightBurst.parentNode) {
+      //   lightBurst.parentNode.removeChild(lightBurst);
+      // }
       setGoWebsite(true);
     }, 1800);
   };
