@@ -35,7 +35,7 @@ const SlideNavigation = ({
       transition={{ type: 'spring', stiffness: 100, damping: 14, delay: 0.3 }}
     >
       {/* Glowing blur background */}
-      <div className="absolute bottom-0 w-[200px] h-[80px] bg-[radial-gradient(circle,#3effbe66,transparent_80%)] blur-[30px] z-0" />
+      <div className="absolute bottom-0 w-[200px] h-[80px] z-0" />
 
       {/* Button group */}
       <div className="relative z-10 flex gap-4 pointer-events-auto">
@@ -56,7 +56,7 @@ const SlideNavigation = ({
             setShowFloatingButtons &&
             setShowFloatingButtons(!showFloatingButtons)
           }
-          className="w-12 h-12 rounded-full bg-accent/10 border border-accent backdrop-blur-md flex items-center justify-center text-foreground  transition-all duration-200 animate-pulse-glow"
+          className="w-12 h-12 rounded-full  border border-accent  flex items-center justify-center text-foreground z-50  transition-all duration-200 animate-pulse-glow"
         >
           <img src={mobileNavigation} alt="Navigate" className="w-5 h-5" />
         </motion.button>

@@ -231,37 +231,23 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
             className="flex flex-col sm:flex-row items-start justify-center sm:justify-start gap-6 sm:gap-5 md:px-0 px-3"
           >
             <button
-              className="w-full sm:w-[220px] md:w-[311px] h-[60px] md:h-[70px] rounded-full text-xl md:text-2xl text-[#39373C] font-[500] bg-gradient-to-r from-[#3EFFBE] to-[#20E1A0] transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer flex items-center justify-center gap-8 uppercase overflow-hidden relative group"
-              style={{ transform: 'scale(0.8)' }}
-              onMouseEnter={(e) => {
-                // Create shimmer effect
-                const shimmer = document.createElement('div');
-                shimmer.style.cssText = `
-                  position: absolute;
-                  top: 0;
-                  left: -100%;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-                  animation: shimmer 0.8s ease-out;
-                `;
-                e.currentTarget.appendChild(shimmer);
-                setTimeout(() => shimmer.remove(), 800);
-              }}
+              className="group w-full sm:w-[220px] md:w-[311px] h-[60px] md:h-[70px] rounded-full text-xl md:text-2xl text-[#39373C] font-[500] bg-gradient-to-r from-[#3EFFBE] to-[#20E1A0] transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-not-allowed flex items-center justify-center gap-8 uppercase overflow-hidden relative opacity-60 "
+              disabled
+              aria-disabled="true"
             >
-              <p>Building</p>
+              <p>Start Building</p>
               <img
                 src={chevronBlack}
                 alt="Chevron Icon"
-                className="w-3 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-3 h-4 transition-transform duration-300"
               />
+              {/* Optional: Overlay to further indicate disabled state */}
+              <span className="absolute inset-0 bg-white/40 pointer-events-none" />
             </button>
 
             <button
               className="group w-full sm:w-[220px] md:w-[311px] h-[60px] md:h-[70px] rounded-full text-xl md:text-2xl text-white font-[500] transition-all duration-300 hover:scale-105 hover:shadow-xl hover:text-background cursor-pointer border border-accent text-[20px] tracking-0 hover:bg-accent flex items-center justify-center gap-8 uppercase overflow-hidden relative"
-              style={{ transform: 'scale(0.8)' }}
               onMouseEnter={(e) => {
-                // Create border glow effect
                 e.currentTarget.style.boxShadow =
                   '0 0 20px rgba(62, 255, 190, 0.5), inset 0 0 20px rgba(62, 255, 190, 0.1)';
               }}

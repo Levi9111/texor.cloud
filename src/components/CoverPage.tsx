@@ -17,10 +17,8 @@ const CoverPage = ({
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Create floating particles
     const createParticles = () => {
       if (!particlesRef.current) return;
-
       const particleCount = 50;
       const particles: HTMLDivElement[] = [];
 
@@ -38,11 +36,9 @@ const CoverPage = ({
           top: ${Math.random() * 100}%;
           box-shadow: 0 0 ${Math.random() * 10 + 5}px rgba(0, 245, 212, 0.3);
         `;
-
         particlesRef.current.appendChild(particle);
         particles.push(particle);
 
-        // Animate each particle
         const animateParticle = () => {
           const duration = Math.random() * 20000 + 10000;
           const startX = Math.random() * window.innerWidth;
@@ -70,30 +66,24 @@ const CoverPage = ({
       return particles;
     };
 
-    // Initialize animations
     const initAnimations = () => {
-      // Set initial states
       if (navRef.current) {
         navRef.current.style.transform = 'translateY(-100%)';
         navRef.current.style.opacity = '0';
       }
-
       if (titleRef.current) {
         titleRef.current.style.transform = 'translateY(50px)';
         titleRef.current.style.opacity = '0';
       }
-
       if (descRef.current) {
         descRef.current.style.transform = 'translateY(30px)';
         descRef.current.style.opacity = '0';
       }
-
       if (buttonRef.current) {
         buttonRef.current.style.transform = 'translateY(30px) scale(0.8)';
         buttonRef.current.style.opacity = '0';
       }
 
-      // Animate in sequence
       setTimeout(() => {
         if (navRef.current) {
           navRef.current.style.transform = 'translateY(0)';
@@ -134,7 +124,6 @@ const CoverPage = ({
     const particles = createParticles();
     initAnimations();
 
-    // Cleanup
     return () => {
       particles?.forEach((particle) => {
         if (particle.parentNode) {
@@ -144,11 +133,8 @@ const CoverPage = ({
     };
   }, []);
 
-  // Exit animation sequence
   const performExitAnimation = () => {
     setIsExiting(true);
-
-    // Button explode effect first
     if (buttonRef.current) {
       buttonRef.current.style.transform = 'scale(1.5) rotate(180deg)';
       buttonRef.current.style.opacity = '0';
@@ -156,7 +142,6 @@ const CoverPage = ({
         'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
     }
 
-    // Create expanding light burst from button
     const lightBurst = document.createElement('div');
     lightBurst.style.cssText = `
       position: fixed;
@@ -173,7 +158,6 @@ const CoverPage = ({
     `;
     document.body.appendChild(lightBurst);
 
-    // Stagger exit animations
     setTimeout(() => {
       if (descRef.current) {
         descRef.current.style.transform = 'translateY(-50px) scale(0.8)';
@@ -203,7 +187,6 @@ const CoverPage = ({
       }
     }, 600);
 
-    // Particles explosion effect
     setTimeout(() => {
       if (particlesRef.current) {
         const particles = particlesRef.current.querySelectorAll('.particle');
@@ -225,7 +208,6 @@ const CoverPage = ({
       }
     }, 300);
 
-    // Container scale and fade
     setTimeout(() => {
       if (containerRef.current) {
         containerRef.current.style.transform = 'scale(1.2)';
@@ -236,7 +218,6 @@ const CoverPage = ({
       }
     }, 800);
 
-    // Clean up and trigger callback
     setTimeout(() => {
       if (lightBurst.parentNode) {
         lightBurst.parentNode.removeChild(lightBurst);
@@ -252,7 +233,6 @@ const CoverPage = ({
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
 
-    // Subtle parallax effect
     if (titleRef.current) {
       const moveX = (x - 0.5) * 10;
       const moveY = (y - 0.5) * 10;
@@ -270,7 +250,6 @@ const CoverPage = ({
     >
       <BackgroundVideo />
 
-      {/* Particle Container */}
       <div
         ref={particlesRef}
         className="absolute inset-0 pointer-events-none z-[1]"
@@ -280,7 +259,6 @@ const CoverPage = ({
         }}
       />
 
-      {/* Animated Grid Overlay */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none z-[1]"
         style={{
@@ -309,10 +287,6 @@ const CoverPage = ({
             width={40}
             height={40}
             className="drop-shadow-lg"
-            style={{
-              animation: 'logo-glow 3s ease-in-out infinite',
-              filter: 'drop-shadow(0 0 10px rgba(0, 245, 212, 0.5))',
-            }}
           />
           <p className="uppercase text-2xl leading-[1.5] tracking-tight font-[750] transition-colors duration-300">
             texor.cloud
@@ -323,11 +297,6 @@ const CoverPage = ({
       <h1
         ref={titleRef}
         className="text-4xl md:text-[88px] font-[750] text-foreground leading-[120%] md:leading-110 tracking-0 md:tracking-[-3%] text-center mt-[190px] relative z-[5]"
-        style={{
-          textShadow:
-            '0 0 30px rgba(0, 245, 212, 0.3), 0 0 60px rgba(0, 245, 212, 0.1)',
-          animation: 'text-shimmer 4s ease-in-out infinite',
-        }}
       >
         Build and Run Real <br className="break" /> AI Agents
       </h1>
@@ -352,52 +321,11 @@ const CoverPage = ({
           w-16 h-16 md:w-20 md:h-20 
           rounded-full border border-accent 
           flex items-center justify-center cursor-pointer 
-          shadow-[0_0_3px_#00f5d4,0_0_6px_#00f5d4] 
-          hover:shadow-[0_0_5px_#00f5d4,0_0_10px_#00f5d4] 
           transition-all duration-300
           relative z-[5] overflow-hidden
           disabled:cursor-not-allowed
         "
-        style={{
-          animation: isExiting
-            ? 'none'
-            : 'button-pulse 2s ease-in-out infinite',
-        }}
-        onMouseEnter={(e) => {
-          if (isExiting) return;
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow =
-            '0 0 20px #00f5d4, 0 0 40px #00f5d4';
-
-          // Create ripple effect
-          const ripple = document.createElement('div');
-          ripple.style.cssText = `
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(0, 245, 212, 0.3);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            left: 50%;
-            top: 50%;
-            width: 100px;
-            height: 100px;
-            margin-left: -50px;
-            margin-top: -50px;
-            pointer-events: none;
-          `;
-          e.currentTarget.appendChild(ripple);
-
-          setTimeout(() => {
-            if (ripple.parentNode) {
-              ripple.parentNode.removeChild(ripple);
-            }
-          }, 600);
-        }}
-        onMouseLeave={(e) => {
-          if (isExiting) return;
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 0 3px #00f5d4, 0 0 6px #00f5d4';
-        }}
+        style={{ boxShadow: 'none' }}
       >
         <ArrowRight className="text-accent relative z-10" size={28} />
       </button>

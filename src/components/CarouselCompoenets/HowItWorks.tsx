@@ -65,13 +65,13 @@ const HowItWorks = ({
           <div className="block lg:hidden space-y-8 ">
             {steps.map((step, index) => (
               <div key={index} className="relative flex justify-center">
-                <div className="relative  border border-accent rounded-lg text-center w-full max-w-[267px] h-[265px] p-4 flex flex-col justify-between">
-                  <div className="flex items-center justify-center border border-accent w-[65px] h-[67px] rounded-xl">
+                <div className="relative  border border-accent rounded-lg text-center w-full max-w-[267px] h-[265px] p-4 flex flex-col justify-between items-center">
+                  <div className="flex items-center justify-center border border-accent w-[85px] h-[87px] rounded-xl">
                     <img
                       src={step.icon}
                       alt={`${step.title} Icon`}
-                      width={28}
-                      height={30}
+                      width={42}
+                      height={45}
                     />
                   </div>
                   <div className="px-2 py-2 rounded-lg border border-accent text-center">

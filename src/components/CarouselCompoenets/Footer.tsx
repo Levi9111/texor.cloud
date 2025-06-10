@@ -15,7 +15,7 @@ const steps = [
   {
     title: 'Follow us on',
     icons: ['/assets/images/x.png', '/assets/images/medium.png'],
-    links: ['https://x.com/Texorcloud', 'mailto:Texorcloud1@gmail.com'],
+    links: ['https://x.com/Texorcloud', 'https://medium.com/@texorcloud'],
   },
 ];
 
