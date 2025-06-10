@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from '../Button';
 import Modal from '../ui/Modal';
 import useOverScroll from '../../hooks/useOverScroll';
+import clsx from 'clsx';
 
 const steps = [
   {
@@ -84,7 +85,10 @@ const UseCase = ({
           {steps.map((step, index) => (
             <div
               key={index}
-              className="w-full md:min-h-[256px] border border-accent p-5 rounded-lg flex flex-col gap-4"
+              className={clsx(
+                'w-full h-[300px] border border-accent p-5 rounded-lg flex flex-col gap-4 ',
+                [0, 1, 2, 3].includes(index) && 'md:self-end'
+              )}
             >
               <div className="border border-accent/20 rounded-xl p-2 w-14 h-14">
                 <div className="border border-accent rounded-[10px] flex items-center justify-center w-full h-full">
