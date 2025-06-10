@@ -86,7 +86,7 @@ const UseCase = ({
             <div
               key={index}
               className={clsx(
-                'w-full h-[300px] border border-accent p-5 rounded-lg flex flex-col gap-4 ',
+                'max-w-[320px] w-full h-[256px] border border-accent p-5 rounded-lg flex flex-col gap-4 ',
                 [0, 1, 2, 3].includes(index) && 'md:self-end'
               )}
             >

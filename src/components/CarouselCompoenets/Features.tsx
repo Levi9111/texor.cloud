@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from '../ui/Modal';
 import Button from '../Button';
 import useOverScroll from '../../hooks/useOverScroll';
+import clsx from 'clsx';
 
 const steps = [
   {
@@ -82,7 +83,9 @@ const Features = ({
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative border border-accent rounded-lg p-5 flex flex-col justify-start gap-5 min-h-[260px] w-full"
+              className={clsx(
+                'relative border border-accent rounded-lg p-5 flex flex-col justify-start gap-5 min-h-[260px] w-full '
+              )}
             >
               <div className="w-16 min-h-16 rounded-lg border border-accent flex items-center justify-center mb-3">
                 <img
