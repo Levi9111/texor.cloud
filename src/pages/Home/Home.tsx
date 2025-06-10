@@ -1,28 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CoverVideo from '../../components/CoverVideo';
+import LoadingVideo from '../../components/LoadingVideo';
 
 interface HomeProps {
   setGoCoverPage: React.Dispatch<React.SetStateAction<boolean>>;
-  // setAudioStart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const inspiringMessages = [
   'Loading...',
   'Initializing Intelligence...',
   'Calibrating Innovation...',
-  'Embrace the Future of AI-Native Automation',
+  // 'Embrace the Future of AI-Native Automation',
 ];
 
 function Home({ setGoCoverPage }: HomeProps) {
   const [loading, setLoading] = useState(true);
   const [loadingMessage, setLoadingMessage] = useState(inspiringMessages[0]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_messageIndex, setMessageIndex] = useState(0);
   const [triggerBurst, setTriggerBurst] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Rotate through loading messages
   useEffect(() => {
     const interval = setInterval(() => {
       setMessageIndex((prev) => {
@@ -32,12 +30,10 @@ function Home({ setGoCoverPage }: HomeProps) {
       });
     }, 2500);
 
-    // End loading after 10 seconds
-    // End loading after 10 seconds and start audio immediately
     const timeout = setTimeout(() => {
       clearInterval(interval);
       setLoading(false);
-    }, 10000);
+    }, 8000);
 
     return () => {
       clearInterval(interval);
@@ -45,7 +41,6 @@ function Home({ setGoCoverPage }: HomeProps) {
     };
   }, []);
 
-  // Particle burst effect
   useEffect(() => {
     if (!triggerBurst || !canvasRef.current) return;
 
@@ -94,7 +89,6 @@ function Home({ setGoCoverPage }: HomeProps) {
       if (frame < 60) {
         requestAnimationFrame(animate);
       } else {
-        // setAudioStart(true);
         setGoCoverPage(true);
       }
     };
@@ -105,136 +99,10 @@ function Home({ setGoCoverPage }: HomeProps) {
   if (loading) {
     return (
       <div className="w-screen h-screen flex items-center justify-center bg-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-50" />
+        {/* Video Background */}
+        <LoadingVideo />
 
-        <div className="absolute inset-0 z-0">
-          {[...Array(50)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full"
-              style={{
-                width: `${2 + Math.random() * 4}px`,
-                height: `${2 + Math.random() * 4}px`,
-                background: `linear-gradient(45deg, #3EFFBE, #00D4AA, #4FFFCF)`,
-                boxShadow: `0 0 ${
-                  4 + Math.random() * 8
-                }px rgba(62, 255, 190, 0.6)`,
-                filter: 'blur(0.5px)',
-              }}
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                opacity: 0,
-                scale: 0,
-              }}
-              animate={{
-                x: [
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
-                ],
-                y: [
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
-                ],
-                opacity: [0, 0.8, 0.4, 0.9, 0],
-                scale: [0, 1, 1.2, 0.8, 1],
-                rotate: [0, 180, 360],
-              }}
-              transition={{
-                duration: 8 + Math.random() * 4,
-                repeat: Infinity,
-                delay: Math.random() * 3,
-                ease: 'easeInOut',
-                times: [0, 0.25, 0.5, 0.75, 1],
-              }}
-            />
-          ))}
-
-          {/* Add some larger, slower moving particles for depth */}
-          {[...Array(15)].map((_, i) => (
-            <motion.div
-              key={`large-${i}`}
-              className="absolute rounded-full"
-              style={{
-                width: `${6 + Math.random() * 8}px`,
-                height: `${6 + Math.random() * 8}px`,
-                background: `radial-gradient(circle, rgba(62, 255, 190, 0.4), rgba(62, 255, 190, 0.1))`,
-                boxShadow: `0 0 ${
-                  8 + Math.random() * 12
-                }px rgba(62, 255, 190, 0.3)`,
-                border: '1px solid rgba(62, 255, 190, 0.2)',
-              }}
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                opacity: 0,
-                scale: 0,
-              }}
-              animate={{
-                x: [
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
-                ],
-                y: [
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
-                ],
-                opacity: [0, 0.6, 0.3, 0.7, 0],
-                scale: [0, 1.2, 0.8, 1.4, 0],
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 12 + Math.random() * 6,
-                repeat: Infinity,
-                delay: Math.random() * 4,
-                ease: 'easeInOut',
-                times: [0, 0.3, 0.6, 0.8, 1],
-              }}
-            />
-          ))}
-
-          {/* Add some connecting lines between particles */}
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={`line-${i}`}
-              className="absolute"
-              style={{
-                width: '1px',
-                height: `${20 + Math.random() * 60}px`,
-                background: `linear-gradient(to bottom, transparent, rgba(62, 255, 190, 0.3), transparent)`,
-                transformOrigin: 'top',
-              }}
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                opacity: 0,
-                scaleY: 0,
-                rotate: Math.random() * 360,
-              }}
-              animate={{
-                x: [
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
-                ],
-                y: [
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
-                ],
-                opacity: [0, 0.4, 0.1, 0.5, 0],
-                scaleY: [0, 1, 0.7, 1.2, 0],
-                rotate: [Math.random() * 360, Math.random() * 360 + 180],
-              }}
-              transition={{
-                duration: 10 + Math.random() * 5,
-                repeat: Infinity,
-                delay: Math.random() * 3,
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
-        </div>
+        {/* Loading Text and Animation */}
         <div className="relative z-10 text-center px-4">
           <AnimatePresence mode="wait">
             <motion.div
@@ -244,7 +112,7 @@ function Home({ setGoCoverPage }: HomeProps) {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mb-4">
                 {loadingMessage}
               </h1>
               <motion.div
@@ -335,7 +203,7 @@ function Home({ setGoCoverPage }: HomeProps) {
         </div>
 
         <div className="absolute bottom-10 w-full text-center z-20 px-4">
-          <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold uppercase stroke-text">
+          <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] font-extrabold uppercase stroke-text leading-snug sm:leading-tight">
             AI-Native Automation <br /> Infrastructure
           </h1>
         </div>

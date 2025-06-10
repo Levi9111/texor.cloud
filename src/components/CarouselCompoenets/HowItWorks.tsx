@@ -20,14 +20,14 @@ const steps = [
     icon: '/assets/images/strategy.png',
   },
   {
-    title: 'Notify User',
-    description: 'Send alerts or update performance tracking',
-    icon: '/assets/images/notify.png',
-  },
-  {
     title: 'Crypto Trading Bot',
     description: 'Executes Buy, Sell, or Hold actions',
     icon: '/assets/images/crypto.png',
+  },
+  {
+    title: 'Notify User',
+    description: 'Send alerts or update performance tracking',
+    icon: '/assets/images/notify.png',
   },
 ];
 
