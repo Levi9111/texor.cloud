@@ -78,21 +78,21 @@ const Features = ({
 
       {/* Cards Container */}
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto md:flex-col md:justify-center  h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto md:flex-col md:justify-center  h-fit">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative border border-accent rounded-lg p-5 flex flex-col justify-between  w-full"
+              className="relative border border-accent rounded-lg p-5 flex flex-col justify-start gap-2  w-full"
               style={{
                 minHeight: '220px',
               }}
             >
-              <div className="w-12 h-12 rounded-lg border border-accent flex items-center justify-center mb-3">
+              <div className="w-16 min-h-16 rounded-lg border border-accent flex items-center justify-center mb-3">
                 <img
                   src={step.icon}
                   alt={`${step.title} Icon`}
-                  width={26}
-                  height={26}
+                  width={30}
+                  height={30}
                 />
               </div>
               <div>
