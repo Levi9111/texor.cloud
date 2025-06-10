@@ -84,10 +84,11 @@ const Features = ({
             <div
               key={index}
               className={clsx(
-                'relative border border-accent rounded-lg p-5 flex flex-col justify-start gap-5 min-h-[260px] w-full '
+                'relative border border-accent rounded-lg p-5 flex flex-col justify-start gap-5 h-[267px] w-full max-w-[256px]',
+                [0, 1, 2, 3].includes(index) && 'md:self-end'
               )}
             >
-              <div className="w-16 min-h-16 rounded-lg border border-accent flex items-center justify-center mb-3">
+              <div className="w-16 min-h-16 rounded-lg border border-accent flex items-center justify-center mb-6">
                 <img
                   src={step.icon}
                   alt={`${step.title} Icon`}
