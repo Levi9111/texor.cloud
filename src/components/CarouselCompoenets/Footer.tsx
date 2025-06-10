@@ -107,7 +107,7 @@ const Footer = ({
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="p-4 focus:outline-none rounded-[23px] border border-[#383838] w-full h-[60px] placeholder:text-[16px] placeholder:text-muted placeholder:leading-[160] bg-transparent"
+                className="p-4 focus:outline-none rounded-xl border border-[#383838] w-full h-[60px] placeholder:text-[16px] placeholder:text-muted/40 placeholder:leading-[160] bg-transparent"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -123,7 +123,7 @@ const Footer = ({
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="p-[26px] focus:outline-none focus:ring-2 focus:ring-accent/40 rounded-[23px] border border-[#383838] w-full h-full placeholder:text-[20px] placeholder:text-muted placeholder:leading-[160] text-[20px] text-muted leading-[160] bg-transparent"
+                className="p-[26px] focus:outline-none focus:ring-2 focus:ring-accent/40 rounded-[23px] border border-[#383838] w-full h-full placeholder:text-[20px] placeholder:text-muted/40 placeholder:leading-[160] text-[20px] text-muted leading-[160] bg-transparent"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
