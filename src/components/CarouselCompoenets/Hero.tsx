@@ -245,7 +245,9 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
               <span className="absolute inset-0 bg-white/40 pointer-events-none" />
             </button>
 
-            <button
+            <a
+              href="https://t.me/texorcloud"
+              target="_blank"
               className="group w-full sm:w-[220px] md:w-[311px] h-[60px] md:h-[70px] rounded-full text-xl md:text-2xl text-white font-[500] transition-all duration-300 hover:scale-105 hover:shadow-xl hover:text-background cursor-pointer border border-accent text-[20px] tracking-0 hover:bg-accent flex items-center justify-center gap-8 uppercase overflow-hidden relative"
               onMouseEnter={(e) => {
                 e.currentTarget.style.boxShadow =
@@ -268,7 +270,7 @@ const Hero = ({ onNavigation }: { onNavigation: (index: number) => void }) => {
                   className="absolute inset-0 w-3 h-4 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
                 />
               </div>
-            </button>
+            </a>
           </div>
 
           <p
